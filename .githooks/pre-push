@@ -1,0 +1,29 @@
+#!/bin/sh
+# Refuses a push whose commits add confidential paths, PDFs or images (plan §2.3).
+. "$(dirname "$0")/guard-lib.sh"
+
+is_zero() { case "$1" in *[!0]*) return 1 ;; *) return 0 ;; esac; }
+
+blocked=0
+while read -r local_ref local_sha remote_ref remote_sha; do
+  is_zero "$local_sha" && continue    # deleting a remote branch pushes no content
+  if ! is_zero "$remote_sha" && git cat-file -e "$remote_sha^{commit}" 2>/dev/null; then
+    commits=$(git rev-list "$remote_sha..$local_sha")
+  else
+    commits=$(git rev-list "$local_sha" --not --remotes)
+  fi
+  for c in $commits; do
+    files=$(git diff-tree -r -z --root --no-commit-id --name-only --diff-filter=ACMR "$c" | tr '\0' '\n')
+    [ -z "$files" ] && continue
+    n=$(printf '%s\n' "$files" | guard_count_blocked_paths)
+    m=$(printf '%s\n' "$files" | grep -E -v "$GUARD_ALLOW" | sed "s|^|$c:|" | guard_count_pdf_content)
+    blocked=$((blocked + n + m))
+  done
+done
+
+if [ "$blocked" -gt 0 ]; then
+  echo "pre-push: refused. The commits being pushed add $blocked confidential path(s), PDF(s) or image(s)." >&2
+  echo "  Names are not printed because they may contain PII. Inspect locally with: git log --stat" >&2
+  exit 1
+fi
+exit 0

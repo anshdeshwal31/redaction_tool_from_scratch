@@ -1,0 +1,18 @@
+#!/bin/sh
+# Refuses a commit that would track confidential paths, PDFs or images (plan §2.3).
+. "$(dirname "$0")/guard-lib.sh"
+
+# Every path in the index, so files tracked before this hook existed are caught too.
+blocked=$(git ls-files -z | tr '\0' '\n' | guard_count_blocked_paths)
+
+# Staged files whose content is a PDF, whatever they are named.
+pdf_content=$(git diff --cached --name-only -z --diff-filter=ACMR | tr '\0' '\n' \
+  | grep -E -v "$GUARD_ALLOW" | sed 's/^/:/' | guard_count_pdf_content)
+
+if [ "$blocked" -gt 0 ] || [ "$pdf_content" -gt 0 ]; then
+  echo "pre-commit: refused. $blocked path(s) in the index are confidential, PDFs or images;" >&2
+  echo "  $pdf_content staged file(s) contain PDF data. Names are not printed because they may contain PII." >&2
+  echo "  Inspect locally with: git diff --cached --name-only" >&2
+  exit 1
+fi
+exit 0

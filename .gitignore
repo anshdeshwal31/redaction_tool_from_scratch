@@ -1,0 +1,42 @@
+# Confidential data. Never commit or push (plan §2.3).
+golden_dataset_docs/
+golden_dataset/
+data/
+runs/
+exports/
+
+# Document files are never committed, except generated synthetic fixtures.
+*.pdf
+!fixtures/synthetic/**/*.pdf
+
+# Local settings and secrets
+.env
+.env.*
+.claude/settings.local.json
+
+# Logs can carry document text if something goes wrong
+*.log
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.egg-info/
+
+# Node / Next.js
+node_modules/
+.next/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# TypeScript incremental state
+*.tsbuildinfo
+
+# Editor / assistant tooling (not tracked)
+.claude/
+.cursor/
