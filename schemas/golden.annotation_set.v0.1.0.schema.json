@@ -1,0 +1,601 @@
+{
+  "$defs": {
+    "Coverage": {
+      "additionalProperties": false,
+      "properties": {
+        "fields_complete": {
+          "items": {
+            "enum": [
+              "filename",
+              "pdf.title",
+              "pdf.author",
+              "pdf.subject",
+              "pdf.keywords",
+              "xmp"
+            ],
+            "type": "string"
+          },
+          "title": "Fields Complete",
+          "type": "array"
+        },
+        "pages_complete": {
+          "items": {
+            "type": "integer"
+          },
+          "title": "Pages Complete",
+          "type": "array"
+        },
+        "pages_verified": {
+          "items": {
+            "type": "integer"
+          },
+          "title": "Pages Verified",
+          "type": "array"
+        },
+        "types_complete": {
+          "items": {
+            "enum": [
+              "PERSON",
+              "ORGANIZATION",
+              "ADDRESS",
+              "EMAIL",
+              "PHONE",
+              "URL",
+              "LOCATION",
+              "CLAIM_NUMBER",
+              "COURT_FILE_NUMBER",
+              "POLICY_NUMBER",
+              "TFN",
+              "ABN",
+              "ACN",
+              "PASSPORT",
+              "DRIVER_LICENCE",
+              "VEHICLE_REGISTRATION",
+              "CENTRELINK_CRN",
+              "ACCOUNT_NUMBER",
+              "MEDICARE",
+              "PROVIDER_NUMBER",
+              "AHPRA_REGISTRATION",
+              "IHI",
+              "MEDICAL_RECORD_NUMBER",
+              "DVA_NUMBER",
+              "DATE",
+              "AGE",
+              "DATE_OF_BIRTH",
+              "GENDER",
+              "NATIONALITY",
+              "SIGNATURE",
+              "PHOTO",
+              "OTHER"
+            ],
+            "type": "string"
+          },
+          "title": "Types Complete",
+          "type": "array"
+        }
+      },
+      "title": "Coverage",
+      "type": "object"
+    },
+    "Entity": {
+      "additionalProperties": false,
+      "properties": {
+        "action": {
+          "enum": [
+            "KEEP",
+            "SYNTHETIC",
+            "REDACT",
+            "REVIEW"
+          ],
+          "title": "Action",
+          "type": "string"
+        },
+        "action_source": {
+          "default": "policy",
+          "enum": [
+            "policy",
+            "override"
+          ],
+          "title": "Action Source",
+          "type": "string"
+        },
+        "attributes": {
+          "additionalProperties": true,
+          "title": "Attributes",
+          "type": "object"
+        },
+        "canonical_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Canonical Id"
+        },
+        "certainty": {
+          "default": "certain",
+          "enum": [
+            "certain",
+            "probable",
+            "uncertain"
+          ],
+          "title": "Certainty",
+          "type": "string"
+        },
+        "entity_id": {
+          "title": "Entity Id",
+          "type": "string"
+        },
+        "entity_type": {
+          "enum": [
+            "PERSON",
+            "ORGANIZATION",
+            "ADDRESS",
+            "EMAIL",
+            "PHONE",
+            "URL",
+            "LOCATION",
+            "CLAIM_NUMBER",
+            "COURT_FILE_NUMBER",
+            "POLICY_NUMBER",
+            "TFN",
+            "ABN",
+            "ACN",
+            "PASSPORT",
+            "DRIVER_LICENCE",
+            "VEHICLE_REGISTRATION",
+            "CENTRELINK_CRN",
+            "ACCOUNT_NUMBER",
+            "MEDICARE",
+            "PROVIDER_NUMBER",
+            "AHPRA_REGISTRATION",
+            "IHI",
+            "MEDICAL_RECORD_NUMBER",
+            "DVA_NUMBER",
+            "DATE",
+            "AGE",
+            "DATE_OF_BIRTH",
+            "GENDER",
+            "NATIONALITY",
+            "SIGNATURE",
+            "PHOTO",
+            "OTHER"
+          ],
+          "title": "Entity Type",
+          "type": "string"
+        },
+        "field": {
+          "anyOf": [
+            {
+              "enum": [
+                "filename",
+                "pdf.title",
+                "pdf.author",
+                "pdf.subject",
+                "pdf.keywords",
+                "xmp"
+              ],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Field"
+        },
+        "flags": {
+          "items": {
+            "enum": [
+              "handwritten",
+              "ocr_degraded",
+              "split_line",
+              "split_page",
+              "partially_illegible",
+              "quasi_identifier"
+            ],
+            "type": "string"
+          },
+          "title": "Flags",
+          "type": "array"
+        },
+        "notes": {
+          "default": "",
+          "title": "Notes",
+          "type": "string"
+        },
+        "override_reason": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Override Reason"
+        },
+        "page": {
+          "anyOf": [
+            {
+              "minimum": 1,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Page"
+        },
+        "provenance": {
+          "$ref": "#/$defs/Provenance"
+        },
+        "regions": {
+          "items": {
+            "$ref": "#/$defs/Region"
+          },
+          "title": "Regions",
+          "type": "array"
+        },
+        "role": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Role"
+        },
+        "text": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Text"
+        },
+        "text_anchor": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/TextAnchor"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        }
+      },
+      "required": [
+        "entity_id",
+        "entity_type",
+        "action",
+        "provenance"
+      ],
+      "title": "Entity",
+      "type": "object"
+    },
+    "IgnoreRegion": {
+      "additionalProperties": false,
+      "properties": {
+        "page": {
+          "minimum": 1,
+          "title": "Page",
+          "type": "integer"
+        },
+        "reason": {
+          "title": "Reason",
+          "type": "string"
+        },
+        "regions": {
+          "items": {
+            "$ref": "#/$defs/Region"
+          },
+          "title": "Regions",
+          "type": "array"
+        }
+      },
+      "required": [
+        "page",
+        "regions",
+        "reason"
+      ],
+      "title": "IgnoreRegion",
+      "type": "object"
+    },
+    "Provenance": {
+      "additionalProperties": false,
+      "properties": {
+        "adjudication": {
+          "anyOf": [
+            {
+              "enum": [
+                "agreed",
+                "took_A1",
+                "took_A2",
+                "verified_silver",
+                "merged",
+                "added"
+              ],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Adjudication"
+        },
+        "annotator": {
+          "enum": [
+            "A1",
+            "A2",
+            "claude_silver",
+            "adjudicated"
+          ],
+          "title": "Annotator",
+          "type": "string"
+        },
+        "origin": {
+          "enum": [
+            "manual",
+            "preannotation_accepted",
+            "preannotation_edited",
+            "audit_added",
+            "silver"
+          ],
+          "title": "Origin",
+          "type": "string"
+        },
+        "pass": {
+          "minimum": 1,
+          "title": "Pass",
+          "type": "integer"
+        },
+        "verified_by": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Verified By"
+        },
+        "verified_date": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Verified Date"
+        }
+      },
+      "required": [
+        "annotator",
+        "pass",
+        "origin"
+      ],
+      "title": "Provenance",
+      "type": "object"
+    },
+    "Region": {
+      "additionalProperties": false,
+      "properties": {
+        "x0": {
+          "title": "X0",
+          "type": "number"
+        },
+        "x1": {
+          "title": "X1",
+          "type": "number"
+        },
+        "y0": {
+          "title": "Y0",
+          "type": "number"
+        },
+        "y1": {
+          "title": "Y1",
+          "type": "number"
+        }
+      },
+      "required": [
+        "x0",
+        "y0",
+        "x1",
+        "y1"
+      ],
+      "title": "Region",
+      "type": "object"
+    },
+    "SilverInfo": {
+      "additionalProperties": false,
+      "properties": {
+        "exception": {
+          "const": "EX-001",
+          "default": "EX-001",
+          "title": "Exception",
+          "type": "string"
+        },
+        "guidelines_version": {
+          "title": "Guidelines Version",
+          "type": "string"
+        },
+        "input_sha256s": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "title": "Input Sha256S",
+          "type": "object"
+        },
+        "model_id": {
+          "title": "Model Id",
+          "type": "string"
+        },
+        "prompt_sha256": {
+          "title": "Prompt Sha256",
+          "type": "string"
+        },
+        "run_date": {
+          "title": "Run Date",
+          "type": "string"
+        }
+      },
+      "required": [
+        "model_id",
+        "run_date",
+        "guidelines_version",
+        "prompt_sha256",
+        "input_sha256s"
+      ],
+      "title": "SilverInfo",
+      "type": "object"
+    },
+    "TextAnchor": {
+      "additionalProperties": false,
+      "properties": {
+        "end": {
+          "minimum": 0,
+          "title": "End",
+          "type": "integer"
+        },
+        "start": {
+          "minimum": 0,
+          "title": "Start",
+          "type": "integer"
+        },
+        "text_source_id": {
+          "title": "Text Source Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "text_source_id",
+        "start",
+        "end"
+      ],
+      "title": "TextAnchor",
+      "type": "object"
+    }
+  },
+  "$id": "golden.annotation_set.v0.1.0",
+  "additionalProperties": false,
+  "properties": {
+    "annotator": {
+      "enum": [
+        "A1",
+        "A2",
+        "claude_silver",
+        "adjudicated"
+      ],
+      "title": "Annotator",
+      "type": "string"
+    },
+    "coverage": {
+      "$ref": "#/$defs/Coverage"
+    },
+    "document_id": {
+      "title": "Document Id",
+      "type": "string"
+    },
+    "document_sha256": {
+      "title": "Document Sha256",
+      "type": "string"
+    },
+    "entities": {
+      "items": {
+        "$ref": "#/$defs/Entity"
+      },
+      "title": "Entities",
+      "type": "array"
+    },
+    "guidelines_version": {
+      "title": "Guidelines Version",
+      "type": "string"
+    },
+    "ignore_regions": {
+      "items": {
+        "$ref": "#/$defs/IgnoreRegion"
+      },
+      "title": "Ignore Regions",
+      "type": "array"
+    },
+    "mode": {
+      "enum": [
+        "blind",
+        "candidates_shown",
+        "silver",
+        "adjudicated"
+      ],
+      "title": "Mode",
+      "type": "string"
+    },
+    "pass": {
+      "default": 1,
+      "minimum": 1,
+      "title": "Pass",
+      "type": "integer"
+    },
+    "policy_ref": {
+      "title": "Policy Ref",
+      "type": "string"
+    },
+    "revision": {
+      "default": 1,
+      "minimum": 1,
+      "title": "Revision",
+      "type": "integer"
+    },
+    "schema": {
+      "const": "golden.annotation_set",
+      "default": "golden.annotation_set",
+      "title": "Schema",
+      "type": "string"
+    },
+    "schema_version": {
+      "default": "0.1.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "silver": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/SilverInfo"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    }
+  },
+  "required": [
+    "document_id",
+    "document_sha256",
+    "annotator",
+    "mode",
+    "guidelines_version",
+    "policy_ref"
+  ],
+  "title": "AnnotationSet",
+  "type": "object"
+}

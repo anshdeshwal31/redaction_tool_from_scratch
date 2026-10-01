@@ -1,0 +1,112 @@
+{
+  "$defs": {
+    "Region": {
+      "additionalProperties": false,
+      "properties": {
+        "x0": {
+          "title": "X0",
+          "type": "number"
+        },
+        "x1": {
+          "title": "X1",
+          "type": "number"
+        },
+        "y0": {
+          "title": "Y0",
+          "type": "number"
+        },
+        "y1": {
+          "title": "Y1",
+          "type": "number"
+        }
+      },
+      "required": [
+        "x0",
+        "y0",
+        "x1",
+        "y1"
+      ],
+      "title": "Region",
+      "type": "object"
+    },
+    "TranscriptLine": {
+      "additionalProperties": false,
+      "properties": {
+        "bbox": {
+          "$ref": "#/$defs/Region"
+        },
+        "text": {
+          "title": "Text",
+          "type": "string"
+        }
+      },
+      "required": [
+        "text",
+        "bbox"
+      ],
+      "title": "TranscriptLine",
+      "type": "object"
+    }
+  },
+  "$id": "golden.page_transcript.v0.1.0",
+  "additionalProperties": false,
+  "properties": {
+    "document_id": {
+      "title": "Document Id",
+      "type": "string"
+    },
+    "lines": {
+      "items": {
+        "$ref": "#/$defs/TranscriptLine"
+      },
+      "title": "Lines",
+      "type": "array"
+    },
+    "page": {
+      "minimum": 1,
+      "title": "Page",
+      "type": "integer"
+    },
+    "reading_order": {
+      "const": "top_down_left_right",
+      "default": "top_down_left_right",
+      "title": "Reading Order",
+      "type": "string"
+    },
+    "schema": {
+      "const": "golden.page_transcript",
+      "default": "golden.page_transcript",
+      "title": "Schema",
+      "type": "string"
+    },
+    "schema_version": {
+      "default": "0.1.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "seeded_from": {
+      "title": "Seeded From",
+      "type": "string"
+    },
+    "verified_by": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Verified By"
+    }
+  },
+  "required": [
+    "document_id",
+    "page",
+    "lines",
+    "seeded_from"
+  ],
+  "title": "PageTranscript",
+  "type": "object"
+}

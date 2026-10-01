@@ -1,0 +1,435 @@
+{
+  "$defs": {
+    "Classification": {
+      "additionalProperties": false,
+      "properties": {
+        "classifier": {
+          "title": "Classifier",
+          "type": "string"
+        },
+        "content_kind": {
+          "enum": [
+            "born_digital",
+            "scanned",
+            "vector_outlined",
+            "hybrid",
+            "blank",
+            "unknown"
+          ],
+          "title": "Content Kind",
+          "type": "string"
+        },
+        "human_verified": {
+          "default": false,
+          "title": "Human Verified",
+          "type": "boolean"
+        },
+        "invisible_ocr_layer": {
+          "default": false,
+          "title": "Invisible Ocr Layer",
+          "type": "boolean"
+        },
+        "ocr_required": {
+          "title": "Ocr Required",
+          "type": "boolean"
+        },
+        "ocr_scope": {
+          "enum": [
+            "none",
+            "raster_regions",
+            "full_page"
+          ],
+          "title": "Ocr Scope",
+          "type": "string"
+        },
+        "text_layer": {
+          "enum": [
+            "usable",
+            "present_unusable",
+            "absent"
+          ],
+          "title": "Text Layer",
+          "type": "string"
+        }
+      },
+      "required": [
+        "content_kind",
+        "text_layer",
+        "ocr_required",
+        "ocr_scope",
+        "classifier"
+      ],
+      "title": "Classification",
+      "type": "object"
+    },
+    "ExtractionInfo": {
+      "additionalProperties": false,
+      "properties": {
+        "engine": {
+          "title": "Engine",
+          "type": "string"
+        },
+        "engine_version": {
+          "title": "Engine Version",
+          "type": "string"
+        },
+        "method": {
+          "enum": [
+            "text_layer",
+            "ocr",
+            "hybrid"
+          ],
+          "title": "Method",
+          "type": "string"
+        },
+        "model_sha256": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Model Sha256"
+        },
+        "render": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/RenderInfo"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "text_source_id": {
+          "title": "Text Source Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "method",
+        "text_source_id",
+        "engine",
+        "engine_version"
+      ],
+      "title": "ExtractionInfo",
+      "type": "object"
+    },
+    "PageMeta": {
+      "additionalProperties": false,
+      "properties": {
+        "classification": {
+          "$ref": "#/$defs/Classification"
+        },
+        "extraction": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ExtractionInfo"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
+        },
+        "height_pt": {
+          "title": "Height Pt",
+          "type": "number"
+        },
+        "page": {
+          "minimum": 1,
+          "title": "Page",
+          "type": "integer"
+        },
+        "rotation": {
+          "title": "Rotation",
+          "type": "integer"
+        },
+        "signals": {
+          "$ref": "#/$defs/Signals"
+        },
+        "width_pt": {
+          "title": "Width Pt",
+          "type": "number"
+        }
+      },
+      "required": [
+        "page",
+        "width_pt",
+        "height_pt",
+        "rotation",
+        "signals",
+        "classification"
+      ],
+      "title": "PageMeta",
+      "type": "object"
+    },
+    "PdfInfo": {
+      "additionalProperties": false,
+      "properties": {
+        "annotations": {
+          "title": "Annotations",
+          "type": "integer"
+        },
+        "creator": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Creator"
+        },
+        "embedded_files": {
+          "title": "Embedded Files",
+          "type": "integer"
+        },
+        "encrypted": {
+          "title": "Encrypted",
+          "type": "boolean"
+        },
+        "form_fields": {
+          "title": "Form Fields",
+          "type": "integer"
+        },
+        "metadata_fields_present": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Metadata Fields Present",
+          "type": "array"
+        },
+        "producer": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Producer"
+        },
+        "version": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Version"
+        }
+      },
+      "required": [
+        "version",
+        "producer",
+        "encrypted",
+        "metadata_fields_present",
+        "annotations",
+        "form_fields",
+        "embedded_files"
+      ],
+      "title": "PdfInfo",
+      "type": "object"
+    },
+    "RenderInfo": {
+      "additionalProperties": false,
+      "properties": {
+        "dpi": {
+          "title": "Dpi",
+          "type": "integer"
+        },
+        "engine": {
+          "title": "Engine",
+          "type": "string"
+        },
+        "mode": {
+          "default": "gray",
+          "enum": [
+            "gray",
+            "rgb"
+          ],
+          "title": "Mode",
+          "type": "string"
+        },
+        "version": {
+          "title": "Version",
+          "type": "string"
+        }
+      },
+      "required": [
+        "engine",
+        "version",
+        "dpi"
+      ],
+      "title": "RenderInfo",
+      "type": "object"
+    },
+    "Signals": {
+      "additionalProperties": false,
+      "properties": {
+        "alnum_ratio": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Alnum Ratio"
+        },
+        "bad_char_ratio": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Bad Char Ratio"
+        },
+        "image_count": {
+          "title": "Image Count",
+          "type": "integer"
+        },
+        "image_coverage": {
+          "title": "Image Coverage",
+          "type": "number"
+        },
+        "image_dpi": {
+          "items": {
+            "type": "integer"
+          },
+          "title": "Image Dpi",
+          "type": "array"
+        },
+        "invisible_text_chars": {
+          "title": "Invisible Text Chars",
+          "type": "integer"
+        },
+        "largest_image_fraction": {
+          "default": 0.0,
+          "title": "Largest Image Fraction",
+          "type": "number"
+        },
+        "small_filled_paths": {
+          "default": 0,
+          "title": "Small Filled Paths",
+          "type": "integer"
+        },
+        "vector_paths": {
+          "title": "Vector Paths",
+          "type": "integer"
+        },
+        "visible_text_chars": {
+          "title": "Visible Text Chars",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "visible_text_chars",
+        "invisible_text_chars",
+        "image_count",
+        "image_coverage",
+        "image_dpi",
+        "vector_paths",
+        "alnum_ratio"
+      ],
+      "title": "Signals",
+      "type": "object"
+    }
+  },
+  "$id": "golden.document_metadata.v0.1.0",
+  "additionalProperties": false,
+  "properties": {
+    "document_id": {
+      "title": "Document Id",
+      "type": "string"
+    },
+    "document_type": {
+      "title": "Document Type",
+      "type": "string"
+    },
+    "matter_id": {
+      "title": "Matter Id",
+      "type": "string"
+    },
+    "original_filename": {
+      "title": "Original Filename",
+      "type": "string"
+    },
+    "page_count": {
+      "title": "Page Count",
+      "type": "integer"
+    },
+    "pages": {
+      "items": {
+        "$ref": "#/$defs/PageMeta"
+      },
+      "title": "Pages",
+      "type": "array"
+    },
+    "pdf": {
+      "$ref": "#/$defs/PdfInfo"
+    },
+    "schema": {
+      "const": "golden.document_metadata",
+      "default": "golden.document_metadata",
+      "title": "Schema",
+      "type": "string"
+    },
+    "schema_version": {
+      "default": "0.1.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "sha256": {
+      "title": "Sha256",
+      "type": "string"
+    },
+    "size_bytes": {
+      "title": "Size Bytes",
+      "type": "integer"
+    },
+    "source_path": {
+      "title": "Source Path",
+      "type": "string"
+    },
+    "split": {
+      "enum": [
+        "dev",
+        "test",
+        "intake"
+      ],
+      "title": "Split",
+      "type": "string"
+    }
+  },
+  "required": [
+    "document_id",
+    "matter_id",
+    "split",
+    "original_filename",
+    "source_path",
+    "sha256",
+    "size_bytes",
+    "document_type",
+    "pdf",
+    "page_count",
+    "pages"
+  ],
+  "title": "DocumentMetadata",
+  "type": "object"
+}

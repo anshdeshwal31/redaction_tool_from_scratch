@@ -1,0 +1,217 @@
+{
+  "$defs": {
+    "RegistryEntity": {
+      "additionalProperties": false,
+      "properties": {
+        "canonical_id": {
+          "title": "Canonical Id",
+          "type": "string"
+        },
+        "date_of_birth": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Date Of Birth"
+        },
+        "entity_type": {
+          "enum": [
+            "PERSON",
+            "ORGANIZATION",
+            "ADDRESS",
+            "EMAIL",
+            "PHONE",
+            "URL",
+            "LOCATION",
+            "CLAIM_NUMBER",
+            "COURT_FILE_NUMBER",
+            "POLICY_NUMBER",
+            "TFN",
+            "ABN",
+            "ACN",
+            "PASSPORT",
+            "DRIVER_LICENCE",
+            "VEHICLE_REGISTRATION",
+            "CENTRELINK_CRN",
+            "ACCOUNT_NUMBER",
+            "MEDICARE",
+            "PROVIDER_NUMBER",
+            "AHPRA_REGISTRATION",
+            "IHI",
+            "MEDICAL_RECORD_NUMBER",
+            "DVA_NUMBER",
+            "DATE",
+            "AGE",
+            "DATE_OF_BIRTH",
+            "GENDER",
+            "NATIONALITY",
+            "SIGNATURE",
+            "PHOTO",
+            "OTHER"
+          ],
+          "title": "Entity Type",
+          "type": "string"
+        },
+        "gender": {
+          "anyOf": [
+            {
+              "enum": [
+                "female",
+                "male",
+                "non_binary",
+                "unknown"
+              ],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Gender"
+        },
+        "gender_evidence": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Gender Evidence"
+        },
+        "label": {
+          "default": "",
+          "title": "Label",
+          "type": "string"
+        },
+        "notes": {
+          "default": "",
+          "title": "Notes",
+          "type": "string"
+        },
+        "role": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Role"
+        }
+      },
+      "required": [
+        "canonical_id",
+        "entity_type"
+      ],
+      "title": "RegistryEntity",
+      "type": "object"
+    },
+    "SilverInfo": {
+      "additionalProperties": false,
+      "properties": {
+        "exception": {
+          "const": "EX-001",
+          "default": "EX-001",
+          "title": "Exception",
+          "type": "string"
+        },
+        "guidelines_version": {
+          "title": "Guidelines Version",
+          "type": "string"
+        },
+        "input_sha256s": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "title": "Input Sha256S",
+          "type": "object"
+        },
+        "model_id": {
+          "title": "Model Id",
+          "type": "string"
+        },
+        "prompt_sha256": {
+          "title": "Prompt Sha256",
+          "type": "string"
+        },
+        "run_date": {
+          "title": "Run Date",
+          "type": "string"
+        }
+      },
+      "required": [
+        "model_id",
+        "run_date",
+        "guidelines_version",
+        "prompt_sha256",
+        "input_sha256s"
+      ],
+      "title": "SilverInfo",
+      "type": "object"
+    }
+  },
+  "$id": "golden.canonical_registry.v0.1.0",
+  "additionalProperties": false,
+  "properties": {
+    "annotator": {
+      "default": "adjudicated",
+      "enum": [
+        "A1",
+        "A2",
+        "claude_silver",
+        "adjudicated"
+      ],
+      "title": "Annotator",
+      "type": "string"
+    },
+    "entities": {
+      "items": {
+        "$ref": "#/$defs/RegistryEntity"
+      },
+      "title": "Entities",
+      "type": "array"
+    },
+    "matter_id": {
+      "title": "Matter Id",
+      "type": "string"
+    },
+    "schema": {
+      "const": "golden.canonical_registry",
+      "default": "golden.canonical_registry",
+      "title": "Schema",
+      "type": "string"
+    },
+    "schema_version": {
+      "default": "0.1.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "silver": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/SilverInfo"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    }
+  },
+  "required": [
+    "matter_id"
+  ],
+  "title": "CanonicalRegistry",
+  "type": "object"
+}

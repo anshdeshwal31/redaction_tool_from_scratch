@@ -1,0 +1,136 @@
+{
+  "$defs": {
+    "ManifestDocument": {
+      "additionalProperties": false,
+      "properties": {
+        "document_id": {
+          "title": "Document Id",
+          "type": "string"
+        },
+        "matter_id": {
+          "title": "Matter Id",
+          "type": "string"
+        },
+        "registered_order": {
+          "title": "Registered Order",
+          "type": "integer"
+        },
+        "sha256": {
+          "title": "Sha256",
+          "type": "string"
+        },
+        "size_bytes": {
+          "title": "Size Bytes",
+          "type": "integer"
+        },
+        "source_name_sha256": {
+          "title": "Source Name Sha256",
+          "type": "string"
+        },
+        "split": {
+          "enum": [
+            "dev",
+            "test",
+            "intake"
+          ],
+          "title": "Split",
+          "type": "string"
+        }
+      },
+      "required": [
+        "document_id",
+        "sha256",
+        "size_bytes",
+        "matter_id",
+        "split",
+        "registered_order",
+        "source_name_sha256"
+      ],
+      "title": "ManifestDocument",
+      "type": "object"
+    },
+    "VerificationSample": {
+      "additionalProperties": false,
+      "properties": {
+        "drawn_before_verification": {
+          "default": true,
+          "title": "Drawn Before Verification",
+          "type": "boolean"
+        },
+        "pages": {
+          "additionalProperties": {
+            "items": {
+              "type": "integer"
+            },
+            "type": "array"
+          },
+          "title": "Pages",
+          "type": "object"
+        },
+        "seed": {
+          "title": "Seed",
+          "type": "string"
+        }
+      },
+      "required": [
+        "seed"
+      ],
+      "title": "VerificationSample",
+      "type": "object"
+    }
+  },
+  "$id": "golden.manifest.v0.1.0",
+  "additionalProperties": false,
+  "properties": {
+    "dataset_version": {
+      "default": "0.1.0",
+      "title": "Dataset Version",
+      "type": "string"
+    },
+    "documents": {
+      "items": {
+        "$ref": "#/$defs/ManifestDocument"
+      },
+      "title": "Documents",
+      "type": "array"
+    },
+    "exceptions": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Exceptions",
+      "type": "array"
+    },
+    "files": {
+      "additionalProperties": {
+        "type": "string"
+      },
+      "title": "Files",
+      "type": "object"
+    },
+    "schema": {
+      "const": "golden.manifest",
+      "default": "golden.manifest",
+      "title": "Schema",
+      "type": "string"
+    },
+    "schema_version": {
+      "default": "0.1.0",
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "verification_sample": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/VerificationSample"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    }
+  },
+  "title": "Manifest",
+  "type": "object"
+}

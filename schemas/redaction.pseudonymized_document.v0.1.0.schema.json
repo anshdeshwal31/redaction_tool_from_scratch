@@ -1,0 +1,347 @@
+{
+  "$defs": {
+    "Box": {
+      "additionalProperties": false,
+      "properties": {
+        "x0": {
+          "title": "X0",
+          "type": "number"
+        },
+        "x1": {
+          "title": "X1",
+          "type": "number"
+        },
+        "y0": {
+          "title": "Y0",
+          "type": "number"
+        },
+        "y1": {
+          "title": "Y1",
+          "type": "number"
+        }
+      },
+      "required": [
+        "x0",
+        "y0",
+        "x1",
+        "y1"
+      ],
+      "title": "Box",
+      "type": "object"
+    },
+    "DocGate": {
+      "additionalProperties": false,
+      "properties": {
+        "leak_scan": {
+          "title": "Leak Scan",
+          "type": "string"
+        },
+        "status": {
+          "title": "Status",
+          "type": "string"
+        }
+      },
+      "required": [
+        "status",
+        "leak_scan"
+      ],
+      "title": "DocGate",
+      "type": "object"
+    },
+    "EditEntry": {
+      "additionalProperties": false,
+      "properties": {
+        "action": {
+          "title": "Action",
+          "type": "string"
+        },
+        "canonical_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Canonical Id"
+        },
+        "edit_id": {
+          "title": "Edit Id",
+          "type": "string"
+        },
+        "entity_type": {
+          "title": "Entity Type",
+          "type": "string"
+        },
+        "field": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Field"
+        },
+        "new_end": {
+          "title": "New End",
+          "type": "integer"
+        },
+        "new_start": {
+          "title": "New Start",
+          "type": "integer"
+        },
+        "page": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Page"
+        },
+        "rule_id": {
+          "title": "Rule Id",
+          "type": "string"
+        },
+        "span_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Span Id"
+        },
+        "strategy": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Strategy"
+        }
+      },
+      "required": [
+        "edit_id",
+        "page",
+        "span_id",
+        "new_start",
+        "new_end",
+        "entity_type",
+        "canonical_id",
+        "action",
+        "strategy",
+        "rule_id"
+      ],
+      "title": "EditEntry",
+      "type": "object"
+    },
+    "Page": {
+      "additionalProperties": false,
+      "properties": {
+        "content_kind": {
+          "title": "Content Kind",
+          "type": "string"
+        },
+        "gate": {
+          "$ref": "#/$defs/PageGate"
+        },
+        "page": {
+          "title": "Page",
+          "type": "integer"
+        },
+        "spans": {
+          "items": {
+            "$ref": "#/$defs/Span"
+          },
+          "title": "Spans",
+          "type": "array"
+        },
+        "text": {
+          "title": "Text",
+          "type": "string"
+        },
+        "text_source_id": {
+          "title": "Text Source Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "page",
+        "content_kind",
+        "text_source_id",
+        "text",
+        "gate",
+        "spans"
+      ],
+      "title": "Page",
+      "type": "object"
+    },
+    "PageGate": {
+      "additionalProperties": false,
+      "properties": {
+        "reasons": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Reasons",
+          "type": "array"
+        },
+        "status": {
+          "title": "Status",
+          "type": "string"
+        }
+      },
+      "required": [
+        "status",
+        "reasons"
+      ],
+      "title": "PageGate",
+      "type": "object"
+    },
+    "Span": {
+      "additionalProperties": false,
+      "properties": {
+        "action": {
+          "enum": [
+            "SYNTHETIC",
+            "REDACT",
+            "REVIEW",
+            "KEEP"
+          ],
+          "title": "Action",
+          "type": "string"
+        },
+        "bboxes": {
+          "items": {
+            "$ref": "#/$defs/Box"
+          },
+          "title": "Bboxes",
+          "type": "array"
+        },
+        "canonical_id": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Canonical Id"
+        },
+        "end": {
+          "title": "End",
+          "type": "integer"
+        },
+        "entity_type": {
+          "title": "Entity Type",
+          "type": "string"
+        },
+        "span_id": {
+          "title": "Span Id",
+          "type": "string"
+        },
+        "start": {
+          "title": "Start",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "span_id",
+        "start",
+        "end",
+        "entity_type",
+        "canonical_id",
+        "action",
+        "bboxes"
+      ],
+      "title": "Span",
+      "type": "object"
+    }
+  },
+  "$id": "redaction.pseudonymized_document.v0.1.0",
+  "additionalProperties": false,
+  "properties": {
+    "document_id": {
+      "title": "Document Id",
+      "type": "string"
+    },
+    "edit_log": {
+      "items": {
+        "$ref": "#/$defs/EditEntry"
+      },
+      "title": "Edit Log",
+      "type": "array"
+    },
+    "fields": {
+      "additionalProperties": {
+        "type": "string"
+      },
+      "title": "Fields",
+      "type": "object"
+    },
+    "gate": {
+      "$ref": "#/$defs/DocGate"
+    },
+    "matter_id": {
+      "title": "Matter Id",
+      "type": "string"
+    },
+    "output_sha256": {
+      "title": "Output Sha256",
+      "type": "string"
+    },
+    "pages": {
+      "items": {
+        "$ref": "#/$defs/Page"
+      },
+      "title": "Pages",
+      "type": "array"
+    },
+    "pipeline": {
+      "additionalProperties": true,
+      "title": "Pipeline",
+      "type": "object"
+    },
+    "schema": {
+      "const": "redaction.pseudonymized_document",
+      "title": "Schema",
+      "type": "string"
+    },
+    "schema_version": {
+      "title": "Schema Version",
+      "type": "string"
+    },
+    "source_sha256": {
+      "title": "Source Sha256",
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema",
+    "schema_version",
+    "document_id",
+    "matter_id",
+    "source_sha256",
+    "pipeline",
+    "pages",
+    "fields",
+    "edit_log",
+    "gate",
+    "output_sha256"
+  ],
+  "title": "PseudonymizedDocument",
+  "type": "object"
+}
