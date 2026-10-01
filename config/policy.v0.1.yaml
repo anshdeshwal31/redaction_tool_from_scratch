@@ -1,0 +1,46 @@
+# Policy v0.1 (plan §3.7). Maps (type, role, attributes) to an action; the first matching rule wins,
+# then the type default. Open questions (§10.2) use their proposed defaults; each is marked "Qn".
+policy_id: default-au-pi
+version: 0.1.0
+
+defaults:
+  PERSON:        {action: SYNTHETIC, strategy: name_components}          # Q1, Q2 (staff)
+  ORGANIZATION:  {action: REVIEW}                                          # Q3 insurers: open
+  ADDRESS:       {action: SYNTHETIC, strategy: address_same_state}
+  EMAIL:         {action: SYNTHETIC, strategy: reserved_domain}
+  PHONE:         {action: SYNTHETIC, strategy: reserved_range}
+  URL:           {action: SYNTHETIC, strategy: reserved_domain}
+  LOCATION:      {action: REVIEW}
+  DATE_OF_BIRTH: {action: SYNTHETIC, strategy: dob_age_preserving, min_window_days: 14, fallback: REDACT}
+  TFN:           {action: REDACT, token: "[TFN]"}
+  NATIONALITY:   {action: REDACT, token: "[NATIONALITY]"}
+  SIGNATURE:     {action: REDACT, token: "[SIGNATURE]"}
+  PHOTO:         {action: REDACT, token: "[PHOTO]"}
+  DATE:          {action: KEEP}
+  AGE:           {action: KEEP}                                            # Q6
+  GENDER:        {action: KEEP}
+  OTHER:         {action: REVIEW}
+
+identifier_types: [CLAIM_NUMBER, COURT_FILE_NUMBER, POLICY_NUMBER, ABN, ACN, PASSPORT, DRIVER_LICENCE,
+                   VEHICLE_REGISTRATION, CENTRELINK_CRN, ACCOUNT_NUMBER, MEDICARE, PROVIDER_NUMBER,
+                   AHPRA_REGISTRATION, IHI, MEDICAL_RECORD_NUMBER, DVA_NUMBER]   # Q9, Q10
+identifier_strategy:
+  checksummed: checksum_invalid        # MEDICARE, ABN, ACN, PROVIDER_NUMBER, IHI
+  other: format_preserving
+
+vault_mode: {SYNTHETIC: reversible, REDACT: hash_only}
+
+rules:
+  - {when: {entity_type: ORGANIZATION, role: [statutory_body, court_tribunal, government]}, action: KEEP}
+  - {when: {entity_type: ORGANIZATION, role: [employer, medical_practice, hospital, law_firm]}, action: SYNTHETIC, strategy: org_name}
+  - {when: {entity_type: PERSON, role: [court_officer]}, action: KEEP}                      # Q2 judicial officers
+  - {when: {entity_type: LOCATION, attributes: {granularity: [country, state]}}, action: KEEP}
+  - {when: {entity_type: LOCATION, attributes: {granularity: [city, suburb, street, incident_site]}}, action: SYNTHETIC, strategy: location_same_state}  # Q4
+  - {when: {entity_type: PHONE, attributes: {number_class: ["13", "1300", "1800"]}}, action: KEEP}   # Q8
+
+critical:
+  - {entity_type: [PERSON], role: [plaintiff, plaintiff_family]}
+  - {entity_type: [DATE_OF_BIRTH, ADDRESS, PHONE, EMAIL, MEDICARE, TFN, PASSPORT, DRIVER_LICENCE, ACCOUNT_NUMBER, CLAIM_NUMBER]}
+
+# Q17: system REVIEW outputs are counted as leaked in the primary privacy metrics.
+review_counts_as_leaked: true

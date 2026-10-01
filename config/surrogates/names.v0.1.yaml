@@ -1,0 +1,44 @@
+# Surrogate name pools v0.1 (plan §4.9.1). Mixed-origin on purpose: surrogates are not matched to the
+# apparent origin of the original name. Versioned and hashed into every run manifest. At runtime any
+# entry that occurs in the matter's extracted text (case-insensitive) is removed from the pool.
+version: 0.1.0
+surnames: [Abernethy, Achebe, Adeyemi, Ahlberg, Alcott, Almeida, Amsel, Anand, Ardley, Arkwright, Ashbury, Aslan, Atherton,
+  Bainbridge, Balasubramanian, Balfour, Bancroft, Barclay, Bardot, Barlowe, Baskerville, Beaumont, Becker, Belmonte,
+  Benedetti, Bergstrom, Bhattacharya, Birkett, Blackwood, Blomqvist, Bonnington, Bramwell, Brightwater, Brodsky,
+  Calloway, Carrington, Castellano, Chadwick, Chandrasekar, Chao, Chatterton, Ciccone, Coldwell, Colquhoun, Cordero,
+  Corrigan, Cranbrook, Crowhurst, Dalgleish, Danforth, Darnell, Delacroix, Delgado, Desai, Dovetail, Drummond, Dunmore,
+  Eckersley, Ellingham, Elmsworth, Engstrom, Esposito, Everhart, Fairbanks, Falkner, Farquhar, Featherstone, Fenwick,
+  Ferreira, Fitzgibbon, Fonseca, Fothergill, Galbraith, Gallo, Garrick, Gatsby, Gilchrist, Glenister, Goldsworthy,
+  Greenhalgh, Grimaldi, Gunasekara, Halloran, Hamada, Harcourt, Hargreave, Hartigan, Haverford, Heathcote, Hennessy,
+  Hollingsworth, Huxtable, Ibarra, Ingleby, Iyer, Jablonski, Jardine, Jessop, Kalinowski, Kapoor, Karlsson, Keswick,
+  Kinkaid, Kirkby, Kobayashi, Kowalczyk, Kristensen, Lachlan, Langridge, Larkspur, Lavender, Lindqvist, Lockhart,
+  Loughran, Lowenthal, Lucchese, Macaulay, Maddox, Malhotra, Marchetti, Marlowe, Matsuda, McAllister, Mendoza,
+  Merriweather, Milbourne, Moncrieff, Montague, Mukherjee, Nakamura, Navarro, Nettleton, Newbould, Nightingale,
+  Northcott, Nowak, Oakenfold, Okonkwo, Olivares, Ormsby, Ostrowski, Pacheco, Palmerston, Pemberton, Pennington,
+  Petrakis, Pilkington, Pradhan, Prescott, Quarrington, Quintero, Radcliffe, Rajaratnam, Ravenscroft, Redgrave,
+  Rinaldi, Rockwell, Rosenqvist, Rutherglen, Saltonstall, Santangelo, Satterthwaite, Sedgwick, Sherbourne, Silvestri,
+  Somerton, Stanhope, Strathdee, Sudbury, Takahashi, Tamborini, Tennyson, Thistlewood, Thornbury, Treloar, Trevelyan,
+  Underhill, Valdivia, Vanstone, Varga, Venkatesh, Wakefield, Waldegrave, Wetherby, Whitcombe, Wickramasinghe,
+  Winterbourne, Wolstenholme, Yamamoto, Yardley, Zabini, Zamora, Zielinski]
+female: [Abigail, Adaeze, Adele, Agnieszka, Aiko, Alessia, Amara, Anouk, Ariadne, Astrid, Aurelia, Beatrix, Belinda,
+  Bettina, Bronwyn, Calista, Camille, Carmela, Cecily, Celeste, Clementine, Constance, Corinne, Daphne, Delphine,
+  Dorothea, Edith, Eleanora, Elif, Eloise, Esme, Evangeline, Fenella, Fiorella, Florence, Freya, Gabriela, Genevieve,
+  Georgiana, Giulia, Gwendolyn, Harriet, Hazel, Helga, Henrietta, Hermione, Ilse, Imogen, Ines, Ingrid, Isadora,
+  Ivana, Jacinta, Jessamine, Josephine, Juniper, Katarina, Keiko, Kirsten, Leilani, Leonie, Liesel, Lorelei, Lucinda,
+  Ludmila, Magdalena, Marguerite, Marisol, Matilda, Meredith, Mirabel, Nadia, Natasha, Nerys, Noemi, Octavia,
+  Odette, Ophelia, Orla, Paloma, Petronella, Philippa, Priya, Prudence, Quilla, Rosalind, Rosamund, Sabine, Saoirse,
+  Seraphina, Sigrid, Simone, Solveig, Tabitha, Tamsin, Theodora, Ulrika, Valentina, Verity, Vivienne, Wilhelmina,
+  Winifred, Xanthe, Yasmin, Yolanda, Ysolde, Zara, Zinnia, Zofia]
+male: [Abelard, Adebayo, Alaric, Alessandro, Ambrose, Anselm, Anwar, Arvid, August, Augustin, Balthazar, Barnaby,
+  Bartholomew, Benedikt, Bertrand, Bjorn, Caspian, Cedric, Cormac, Cosimo, Cyprian, Dashiell, Desmond, Dmitri,
+  Dorian, Eamon, Ebenezer, Eero, Emeric, Emrys, Erasmus, Evander, Ezio, Fabian, Felix, Fergus, Florian, Gaspard,
+  Gideon, Godfrey, Gustav, Hamish, Hamza, Hector, Horatio, Hugo, Ignatius, Ilya, Ingmar, Isidore, Jasper, Joaquin,
+  Jonas, Julian, Kasimir, Kenji, Lachlan, Laurent, Leander, Leopold, Lorcan, Lucian, Magnus, Malachi, Marcellus,
+  Matthias, Maximilian, Mordecai, Nikolai, Ninian, Octavian, Olaf, Osbert, Oswin, Percival, Piers, Quentin, Quillon,
+  Rafferty, Ragnar, Rashid, Remy, Rodrigo, Rufus, Sebastian, Severin, Silas, Soren, Stellan, Tarquin, Thaddeus,
+  Tiberius, Tobias, Ulric, Valentin, Vasco, Viggo, Wendell, Wilfred, Xavier, Yannick, Yuri, Zachariah, Zoltan]
+unisex: [Addison, Ainsley, Alexis, Arden, Ash, Aubrey, Avery, Bailey, Blair, Brook, Cameron, Carey, Casey, Corin,
+  Dallas, Darcy, Devon, Drew, Eden, Ellis, Emerson, Finley, Frankie, Gale, Harley, Hayden, Indigo, Jamie, Jordan,
+  Jules, Kai, Kendall, Lane, Lee, Logan, Marley, Morgan, Noel, Oakley, Parker, Peyton, Quinn, Reese, Remi, Riley,
+  River, Robin, Rowan, Sage, Sasha, Shiloh, Skyler, Tatum, Taylor, Teagan, Wren, Wynn]
+honorific_gender: {Mr: male, Mrs: female, Ms: female, Miss: female, Mstr: male, Master: male, Mx: unknown, Sir: male, Dame: female, Madam: female}

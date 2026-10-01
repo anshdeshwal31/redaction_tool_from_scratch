@@ -1,0 +1,7 @@
+# Local role gate for the sensitive operations (plan §4.12.4, §10 Q21). No PII.
+# The actor is the X-Actor header (API) or --actor (CLI). Calls are audit-logged with counts and hashes.
+# The firm decides who holds these roles; edit this list, never the code.
+version: 0.1.0
+roles:
+  export: [owner, reviewer]
+  reidentify: [owner]

@@ -1,0 +1,38 @@
+# Surrogate places v0.1 (plan §4.9.3): fictitious streets with a real suburb and postcode from the same
+# state. Suburb/postcode pairs are a curated subset of Australian localities (ABS localities are CC BY 4.0;
+# a full ABS import replaces this list later). Entries found in the matter's text are removed at runtime.
+version: 0.1.0
+street_names: [Amberwood, Applecross, Banksia Ridge, Barrowmere, Bellbird, Blackthorn, Bluegum Hollow, Bottlebrush,
+  Briarwood, Brolga, Candlebark, Casuarina Bend, Cedarvale, Coachwood, Corella, Cottonwood, Currawong, Driftwood,
+  Elderberry, Emberleigh, Fernglade, Firetail, Foxglove, Gallery Hill, Glasswing, Goldfinch, Greenhood, Gumleaf,
+  Hazelmere, Heathfield, Hollybush, Ironbark Rise, Jacaranda Vale, Kestrel, Kingfisher, Lantana, Larkhill, Lilly Pilly,
+  Lyrebird, Mallee, Marigold, Meadowlark, Mistletoe, Moonah, Nightjar, Oakhaven, Paperbark, Pardalote, Peppercorn,
+  Pinewood, Quandong, Redwing, Riverbend, Rosella, Saltbush, Sandpiper, Satinwood, Silvereye, Skylark, Snowgum,
+  Spinifex, Stringybark, Sunbird, Tallowwood, Thornbill, Tuart, Waratah Glen, Wattlebird, Whipbird, Willowmere,
+  Woodswallow, Yellowbox]
+street_types: [Street, Road, Avenue, Drive, Court, Place, Crescent, Lane, Way, Terrace, Parade, Close]
+states:
+  QLD: [[Toowong, "4066"], [Ashgrove, "4060"], [Paddington, "4064"], [Indooroopilly, "4068"], [Chermside, "4032"], [Carindale, "4152"],
+        [Sunnybank, "4109"], [Nundah, "4012"], [Wynnum, "4178"], [Stafford, "4053"], [Coorparoo, "4151"], [Kenmore, "4069"],
+        [Springwood, "4127"], [Redcliffe, "4020"], [Caboolture, "4510"], [Ipswich, "4305"], [Robina, "4226"], [Nerang, "4211"],
+        [Burleigh Heads, "4220"], [Nambour, "4560"], [Caloundra, "4551"], [Rockhampton, "4700"], [Mackay, "4740"],
+        [Townsville, "4810"], [Cairns, "4870"], [Bundaberg, "4670"], [Gladstone, "4680"], [Warwick, "4370"], [Gympie, "4570"]]
+  NSW: [[Parramatta, "2150"], [Chatswood, "2067"], [Bondi, "2026"], [Penrith, "2750"], [Hornsby, "2077"], [Liverpool, "2170"],
+        [Blacktown, "2148"], [Wollongong, "2500"], [Newcastle, "2300"], [Gosford, "2250"], [Orange, "2800"], [Dubbo, "2830"],
+        [Wagga Wagga, "2650"], [Albury, "2640"], [Tamworth, "2340"], [Bathurst, "2795"], [Lismore, "2480"], [Coffs Harbour, "2450"],
+        [Port Macquarie, "2444"], [Goulburn, "2580"]]
+  VIC: [[Richmond, "3121"], [Fitzroy, "3065"], [Brunswick, "3056"], [Footscray, "3011"], [Box Hill, "3128"], [Dandenong, "3175"],
+        [Frankston, "3199"], [Geelong, "3220"], [Ballarat, "3350"], [Bendigo, "3550"], [Shepparton, "3630"], [Mildura, "3500"],
+        [Warrnambool, "3280"], [Traralgon, "3844"], [Werribee, "3030"], [Ringwood, "3134"]]
+  SA:  [[Glenelg, "5045"], [Norwood, "5067"], [Prospect, "5082"], [Unley, "5061"], [Salisbury, "5108"], [Elizabeth, "5112"],
+        [Mount Barker, "5251"], [Murray Bridge, "5253"], [Port Augusta, "5700"], [Whyalla, "5600"], [Mount Gambier, "5290"], [Victor Harbor, "5211"]]
+  WA:  [[Fremantle, "6160"], [Subiaco, "6008"], [Joondalup, "6027"], [Midland, "6056"], [Armadale, "6112"], [Rockingham, "6168"],
+        [Mandurah, "6210"], [Bunbury, "6230"], [Geraldton, "6530"], [Albany, "6330"], [Kalgoorlie, "6430"], [Broome, "6725"]]
+  TAS: [[Sandy Bay, "7005"], [Glenorchy, "7010"], [Kingston, "7050"], [Launceston, "7250"], [Devonport, "7310"], [Burnie, "7320"]]
+  NT:  [[Darwin, "0800"], [Palmerston, "0830"], [Alice Springs, "0870"], [Katherine, "0850"]]
+  ACT: [[Belconnen, "2617"], [Woden, "2606"], [Tuggeranong, "2900"], [Gungahlin, "2912"], [Braddon, "2612"], [Kingston, "2604"]]
+state_aliases: {QLD: QLD, Qld: QLD, Queensland: QLD, NSW: NSW, "New South Wales": NSW, VIC: VIC, Vic: VIC, Victoria: VIC,
+  SA: SA, "South Australia": SA, WA: WA, "Western Australia": WA, TAS: TAS, Tas: TAS, Tasmania: TAS, NT: NT,
+  "Northern Territory": NT, ACT: ACT, "Australian Capital Territory": ACT}
+postcode_state: {"0": NT, "2": NSW, "3": VIC, "4": QLD, "5": SA, "6": WA, "7": TAS}
+default_state: QLD

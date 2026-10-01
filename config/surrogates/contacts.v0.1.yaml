@@ -1,0 +1,26 @@
+# Surrogate contact data v0.1 (plan §4.9.3).
+# Phones: numbers the ACMA reserves for creative works (checked 2026-10-01:
+# https://www.acma.gov.au/phone-numbers-use-tv-shows-films-and-creative-works). They belong to nobody.
+version: 0.1.0
+mobile: ["0491570006", "0491570156", "0491570157", "0491570158", "0491570159", "0491570110", "0491570313", "0491570737",
+  "0491571266", "0491571491", "0491571804", "0491572549", "0491572665", "0491572983", "0491573770", "0491573087",
+  "0491574118", "0491574632", "0491575254", "0491575789", "0491576398", "0491576801", "0491577426", "0491577644",
+  "0491578957", "0491578148", "0491578888", "0491579212", "0491579760", "0491579455"]
+# Geographic: (0X) 5550 0000-9999 and (0X) 7010 0000-9999 for every area code 02, 03, 07, 08.
+landline_blocks: ["5550", "7010"]
+area_codes: ["02", "03", "07", "08"]
+freephone: ["1800160401", "1800975707", "1800975708", "1800975709", "1800975710", "1800975711"]
+local_rate: ["1300975707", "1300975708", "1300975709", "1300975710", "1300975711"]
+# RFC 2606 reserved domains.
+email_domains: [example.com, example.org, example.net]
+url_domain: example.org
+# Organisation surrogates keep their kind (the original's suffix); the stem is replaced.
+org_stems: [Amberline, Bellwether, Bluegum, Bridgewater, Brightwell, Cedarcrest, Clearwater, Copperfield, Corella,
+  Crestview, Driftwood, Eastgate, Elmstead, Fairhaven, Fernleigh, Goldcrest, Granitehill, Greystone, Harbourline,
+  Hartwell, Hawthorn, Highmoor, Ironwood, Juniper, Kestrel, Kingsmere, Lakeside, Larkspur, Linden, Meadowbank,
+  Millbrook, Moorland, Northwind, Oakridge, Pinecrest, Quarryhill, Redgum, Riverstone, Rosewood, Saltwater,
+  Silverleaf, Stonebridge, Summerhill, Tidewater, Westbrook, Whitecliff, Willowdale, Windermere]
+org_suffixes: ["Private Hospital", "University Hospital", "Hospital", "Medical Centre", "Medical Clinic", "Medical Practice",
+  "Family Clinic", "Clinic", "Radiology", "Physiotherapy", "Psychology", "Neurosurgery", "Health Group", "Health",
+  "Lawyers", "Solicitors", "Legal", "College Limited", "College", "Primary School", "State School", "School", "University",
+  "Pty Ltd", "Pty. Ltd.", "Limited", "Ltd", "Group", "Services", "Centre", "Institute", "Partners"]

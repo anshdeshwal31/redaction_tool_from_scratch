@@ -1,0 +1,28 @@
+# Golden dataset configuration (plan §8). No PII: documents are referred to by safe ID only.
+matter_id: matter_001
+default_split: dev
+splits:
+  test: [doc_001, doc_004]
+  dev: [doc_002, doc_003, doc_005]
+# IAA path (plan §9.3, §9.6): A1 and A2 annotate these from scratch, blind to silver.
+iaa_documents: [doc_003, doc_004]
+# Silver trust rule (plan §9.4): test split verified in full; other non-IAA documents get a seeded,
+# class-stratified sample of 20 % of pages, at least 5 (all pages if fewer). Drawn once, before verification.
+verification_sample:
+  seed: "redactor-verification-sample-v1"
+  rate: 0.2
+  min_pages: 5
+# Types derived from the filenames at planning time (plan §1.2); the filenames themselves are PII.
+document_types:
+  doc_001: medico_legal_report/degree_of_permanent_impairment
+  doc_002: claim_form/notice_of_claim_for_damages
+  doc_003: medico_legal_report/psychiatric
+  doc_004: medico_legal_report/independent_medical_examination
+  doc_005: transcript/plaintiff_training
+# Expected SHA-256 prefixes recorded in plan §1.2; register refuses to assign these IDs to other files.
+expected_sha256_prefixes:
+  doc_001: 054a4f09729a
+  doc_002: 065305416f6f
+  doc_003: 349a3cba361d
+  doc_004: c35b94897308
+  doc_005: 321d47ed9379

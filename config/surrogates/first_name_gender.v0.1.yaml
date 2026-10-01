@@ -1,0 +1,32 @@
+# First-name gender lexicon v0.1 (plan §4.9.1, gender source 3). Used only to infer the gender of a real
+# first name when there is no honorific or registry evidence; never used as a surrogate. Common names in
+# Australia; ambiguous names (e.g. Jordan, Sam, Alex, Jesse, Robin) are deliberately absent -> unknown.
+version: 0.1.0
+female: [Abby, Abigail, Ada, Adele, Adriana, Agnes, Aileen, Alana, Alexandra, Alice, Alicia, Alison, Allison, Amanda,
+  Amber, Amelia, Amy, Andrea, Angela, Angelina, Anita, Ann, Anna, Anne, Annette, Annie, April, Ashleigh, Audrey,
+  Barbara, Beatrice, Belinda, Bernadette, Beth, Bethany, Betty, Beverley, Bianca, Bonnie, Brenda, Bridget, Brittany,
+  Brooke, Bronwyn, Caitlin, Carla, Carmel, Carol, Caroline, Carolyn, Cassandra, Catherine, Charlotte, Chelsea, Cheryl,
+  Chloe, Christina, Christine, Claire, Clare, Colleen, Courtney, Cynthia, Danielle, Dawn, Debbie, Deborah, Denise,
+  Diana, Diane, Donna, Doris, Dorothy, Eileen, Elaine, Eleanor, Eliana, Elizabeth, Ella, Ellen, Elly, Emily, Emma,
+  Erin, Eva, Evelyn, Fiona, Frances, Gabrielle, Gail, Gemma, Georgia, Geraldine, Gillian, Glenda, Grace, Hannah,
+  Heather, Heidi, Helen, Holly, Irene, Isabel, Isabella, Jacqueline, Jade, Jane, Janet, Janine, Jasmine, Jean, Jenna,
+  Jennifer, Jenny, Jessica, Jill, Joan, Joanne, Jocelyn, Jodie, Jody, Josephine, Joy, Joyce, Judith, Judy, Julia,
+  Julie, June, Karen, Kate, Katherine, Kathleen, Kathryn, Katie, Kayla, Kellie, Kelly, Kerry, Kim, Kimberley,
+  Kirsty, Kristen, Kylie, Larna, Laura, Lauren, Leah, Leanda, Leanne, Leigh-Anne, Lena, Leonie, Lily, Linda, Lisa,
+  Lorraine, Louise, Lucy, Lynda, Lynette, Madeleine, Madison, Maree, Margaret, Maria, Marianne, Marie, Marilyn,
+  Marion, Mary, Megan, Melanie, Melissa, Michelle, Mia, Molly, Monica, Natalie, Natasha, Nicole, Nikita, Noeline,
+  Olivia, Pamela, Patricia, Paula, Pauline, Penelope, Penny, Phoebe, Rachel, Rebecca, Renee, Rhonda, Robyn, Rosa,
+  Rosemary, Ruby, Ruth, Samantha, Sandra, Sarah, Sharon, Sheila, Shirley, Sonia, Sophia, Sophie, Stacey, Stephanie,
+  Sue, Susan, Suzanne, Tamara, Tania, Tanya, Tara, Teresa, Tessa, Theresa, Tiffany, Tracey, Tracy, Valerie, Vanessa,
+  Vicki, Victoria, Wendy, Yvonne, Zoe]
+male: [Aaron, Adam, Adrian, Aidan, Alan, Albert, Alessandro, Alexander, Alfred, Allan, Andrew, Angus, Anthony, Antonio,
+  Arthur, Barry, Ben, Benjamin, Bernard, Bill, Blake, Bradley, Brendan, Brett, Brian, Bruce, Bryan, Callum, Cameron,
+  Carl, Charles, Chris, Christian, Christopher, Clive, Colin, Craig, Cristian, Damian, Damien, Daniel, Darren, David,
+  Dean, Dennis, Derek, Dominic, Donald, Douglas, Dylan, Edward, Eric, Ethan, Frank, Fraser, Gary, Gavin, Geoffrey,
+  George, Gerald, Glen, Glenn, Gordon, Graham, Grant, Greg, Gregory, Harold, Harry, Hayden, Henry, Hugh, Ian, Isaac,
+  Jack, Jacob, Jake, James, Jason, Jeffrey, Jeremy, Joel, John, Jonathan, Joseph, Joshua, Justin, Keith, Kenneth,
+  Kevin, Kieran, Kyle, Lachlan, Lawrence, Leon, Leonard, Liam, Lewis, Lincoln, Luke, Malcolm, Marcus, Mark, Martin,
+  Matthew, Max, Michael, Mitchell, Nathan, Neil, Nicholas, Nigel, Noah, Oliver, Oscar, Owen, Patrick, Paul, Peter,
+  Phil, Philip, Phillip, Raymond, Richard, Robert, Rodney, Roger, Ronald, Ross, Roy, Russell, Ryan, Samuel, Scott,
+  Sean, Shane, Simon, Stephen, Steven, Stuart, Terence, Thomas, Timothy, Todd, Tony, Travis, Trevor, Troy, Vincent,
+  Walter, Warren, Wayne, William, Zachary]

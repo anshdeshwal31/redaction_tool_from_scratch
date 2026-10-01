@@ -1,0 +1,30 @@
+# Generic Australian form-label lexicon for baseline v1 layout rules (plan §7.2). No document content.
+form: au_generic
+version: 0.1.0
+tolerances:
+  same_line_max_gap_pt: 260      # value to the right of a label, on the same line
+  below_max_gap_pt: 28           # value on the next line below a label
+  below_left_tolerance_pt: 60
+  cell_gap_factor: 2.2           # a gap wider than 2.2x the median char width starts a new cell
+  max_value_words: 8
+labels:
+  - {label: [surname, family name, last name], type: PERSON, attrs: {name_form: surname_only}}
+  - {label: [given name, given names, first name, first names, christian name, other names], type: PERSON, attrs: {name_form: given_only}}
+  - {label: [full name, name of claimant, claimant name, name of worker, worker name, name of injured person, patient name, name], type: PERSON}
+  - {label: [date of birth, d.o.b, dob, birth date], type: DATE_OF_BIRTH}
+  - {label: [address, residential address, home address, postal address, street address], type: ADDRESS}
+  - {label: [telephone, phone, phone number, home phone, work phone, mobile, mobile number, contact number, tel], type: PHONE}
+  - {label: [email, email address, e-mail], type: EMAIL}
+  - {label: [medicare no, medicare number, medicare card number, medicare], type: MEDICARE}
+  - {label: [claim number, claim no, workcover claim number, ref, our ref, your ref, reference], type: CLAIM_NUMBER}
+  - {label: [tax file number, tfn], type: TFN}
+  - {label: [employer, name of employer, employer name, employer at time of injury], type: ORGANIZATION, attrs: {role: employer}}
+  - {label: [occupation, position, job title], type: null}
+  - {label: [date of injury, date of incident, date of accident], type: DATE, attrs: {date_role: date_of_injury}}
+  - {label: [licence number, driver licence number, drivers licence], type: DRIVER_LICENCE}
+  - {label: [policy number, policy no], type: POLICY_NUMBER}
+  - {label: [bsb], type: ACCOUNT_NUMBER}
+  - {label: [account number, account no], type: ACCOUNT_NUMBER}
+  - {label: [abn], type: ABN}
+  - {label: [acn], type: ACN}
+  - {label: [crn, customer reference number], type: CENTRELINK_CRN}

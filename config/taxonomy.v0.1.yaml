@@ -1,0 +1,64 @@
+# Entity taxonomy (plan §3.7). Types marked "proposed: true" are additions to the brief's list.
+taxonomy_id: au-medico-legal
+version: 0.1.0
+
+groups:
+  - person
+  - organization
+  - contact
+  - location
+  - legal_identifiers
+  - medical_identifiers
+  - temporal
+  - demographic
+  - visual
+  - other
+
+types:
+  PERSON:                {group: person,              is_pii: true,  region_only: false}
+  ORGANIZATION:          {group: organization,        is_pii: true,  region_only: false}
+  ADDRESS:               {group: contact,             is_pii: true,  region_only: false}
+  EMAIL:                 {group: contact,             is_pii: true,  region_only: false}
+  PHONE:                 {group: contact,             is_pii: true,  region_only: false}
+  URL:                   {group: contact,             is_pii: true,  region_only: false, proposed: true}
+  LOCATION:              {group: location,            is_pii: true,  region_only: false}
+  CLAIM_NUMBER:          {group: legal_identifiers,   is_pii: true,  region_only: false}
+  COURT_FILE_NUMBER:     {group: legal_identifiers,   is_pii: true,  region_only: false, proposed: true}
+  POLICY_NUMBER:         {group: legal_identifiers,   is_pii: true,  region_only: false, proposed: true}
+  TFN:                   {group: legal_identifiers,   is_pii: true,  region_only: false, validator: tfn}
+  ABN:                   {group: legal_identifiers,   is_pii: true,  region_only: false, validator: abn}
+  ACN:                   {group: legal_identifiers,   is_pii: true,  region_only: false, validator: acn}
+  PASSPORT:              {group: legal_identifiers,   is_pii: true,  region_only: false}
+  DRIVER_LICENCE:        {group: legal_identifiers,   is_pii: true,  region_only: false}
+  VEHICLE_REGISTRATION:  {group: legal_identifiers,   is_pii: true,  region_only: false, proposed: true}
+  CENTRELINK_CRN:        {group: legal_identifiers,   is_pii: true,  region_only: false, proposed: true}
+  ACCOUNT_NUMBER:        {group: legal_identifiers,   is_pii: true,  region_only: false}
+  MEDICARE:              {group: medical_identifiers, is_pii: true,  region_only: false, validator: medicare}
+  PROVIDER_NUMBER:       {group: medical_identifiers, is_pii: true,  region_only: false, validator: provider_number}
+  AHPRA_REGISTRATION:    {group: medical_identifiers, is_pii: true,  region_only: false, proposed: true}
+  IHI:                   {group: medical_identifiers, is_pii: true,  region_only: false, validator: ihi, proposed: true}
+  MEDICAL_RECORD_NUMBER: {group: medical_identifiers, is_pii: true,  region_only: false, proposed: true}
+  DVA_NUMBER:            {group: medical_identifiers, is_pii: true,  region_only: false, proposed: true}
+  DATE:                  {group: temporal,            is_pii: false, region_only: false}
+  AGE:                   {group: temporal,            is_pii: false, region_only: false, proposed: true}
+  DATE_OF_BIRTH:         {group: temporal,            is_pii: true,  region_only: false}
+  GENDER:                {group: demographic,         is_pii: false, region_only: false}
+  NATIONALITY:           {group: demographic,         is_pii: true,  region_only: false}
+  SIGNATURE:             {group: visual,              is_pii: true,  region_only: true,  proposed: true}
+  PHOTO:                 {group: visual,              is_pii: true,  region_only: true,  proposed: true}
+  OTHER:                 {group: other,               is_pii: true,  region_only: false}
+
+# Pairs treated as the same type under "overlap-typed" matching (plan §4.5).
+compatible:
+  - [DATE, DATE_OF_BIRTH]
+  - [ADDRESS, LOCATION]
+
+# Report buckets required by plan §4.8.
+report_buckets:
+  PERSON: [PERSON]
+  ORGANIZATION: [ORGANIZATION]
+  ADDRESS: [ADDRESS]
+  EMAIL: [EMAIL]
+  PHONE: [PHONE]
+  legal_identifiers: [CLAIM_NUMBER, COURT_FILE_NUMBER, POLICY_NUMBER, TFN, ABN, ACN, PASSPORT, DRIVER_LICENCE, VEHICLE_REGISTRATION, CENTRELINK_CRN, ACCOUNT_NUMBER]
+  medical_identifiers: [MEDICARE, PROVIDER_NUMBER, AHPRA_REGISTRATION, IHI, MEDICAL_RECORD_NUMBER, DVA_NUMBER]
