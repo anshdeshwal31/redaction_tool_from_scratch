@@ -1,0 +1,19 @@
+# Page classifier thresholds (plan §3.3). Recorded in every run via the classifier fingerprint.
+classifier: page_classifier@0.1.0
+coverage_grid: 40               # image coverage is sampled on a 40x40 grid
+small_path_max_pt: 20.0         # a path whose box is under 20x20 pt counts as glyph-like
+usable_text:
+  min_visible_chars: 50
+  min_alnum_ratio: 0.6
+  max_bad_char_ratio: 0.01      # U+FFFD and private-use characters
+scanned:
+  min_image_coverage: 0.85
+vector_outlined:
+  min_small_filled_paths: 300
+  max_image_coverage: 0.5
+hybrid:
+  min_raster_fraction: 0.05     # one raster region covering >= 5% of a text-layer page
+raster_region_min_fraction: 0.005  # raster regions this large on text-layer pages are OCRed
+blank:
+  max_paths: 50
+  max_image_coverage: 0.02

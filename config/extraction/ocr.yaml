@@ -1,0 +1,20 @@
+# OCR and rendering configuration (plan §4.7: pinned engine, model hash, fixed settings, one thread).
+render:
+  engine: pdfium
+  dpi: 300
+  mode: gray
+tesseract:
+  image: redactor-tesseract:0.1.0
+  image_id: sha256:bbc20cebe44491d4fdafacd348866e32c082a2af203acb6d39e98f66cd651ffb
+  base_image: debian:trixie-slim@sha256:a99cfc517144bc59b1978475ec53b46ecabec7e43635402ee5b77cc54cd1b20a
+  version: 5.5.0
+  leptonica: 1.84.1
+  model: tessdata_best/eng@4.1.0
+  model_sha256: 8280aed0782fe27257a68ea10fe7ef324ca0f8d85bd2fd145d1c2b560bcb66ba
+  lang: eng
+  oem: 1
+  psm: 3
+hybrid:
+  raster_region_min_fraction: 0.005   # same as the page classifier
+  region_margin_pt: 4.0
+  drop_overlap_fraction: 0.5          # OCR words mostly covered by text-layer words are dropped
