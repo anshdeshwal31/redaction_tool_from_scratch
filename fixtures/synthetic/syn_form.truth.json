@@ -1,0 +1,232 @@
+{
+  "annotator": "adjudicated",
+  "coverage": {
+    "fields_complete": [],
+    "pages_complete": [
+      1
+    ],
+    "pages_verified": [],
+    "types_complete": []
+  },
+  "document_id": "syn_form",
+  "document_sha256": "fa69f578de6edab43c6f87a73827dabf30b16b40257ced11d11f55c934484a56",
+  "entities": [
+    {
+      "action": "SYNTHETIC",
+      "action_source": "policy",
+      "attributes": {
+        "casing": "title",
+        "name_form": "surname_only"
+      },
+      "canonical_id": "matter_syn/person_901",
+      "certainty": "certain",
+      "entity_id": "syn_form.e0001",
+      "entity_type": "PERSON",
+      "field": null,
+      "flags": [],
+      "notes": "",
+      "override_reason": null,
+      "page": 1,
+      "provenance": {
+        "adjudication": "agreed",
+        "annotator": "adjudicated",
+        "origin": "manual",
+        "pass": 1,
+        "verified_by": null,
+        "verified_date": null
+      },
+      "regions": [
+        {
+          "x0": 299.5,
+          "x1": 340.24,
+          "y0": 63.0,
+          "y1": 75.0
+        }
+      ],
+      "role": "plaintiff",
+      "text": "Ashdale",
+      "text_anchor": null
+    },
+    {
+      "action": "SYNTHETIC",
+      "action_source": "policy",
+      "attributes": {
+        "casing": "title",
+        "name_form": "given_only"
+      },
+      "canonical_id": "matter_syn/person_901",
+      "certainty": "certain",
+      "entity_id": "syn_form.e0002",
+      "entity_type": "PERSON",
+      "field": null,
+      "flags": [],
+      "notes": "",
+      "override_reason": null,
+      "page": 1,
+      "provenance": {
+        "adjudication": "agreed",
+        "annotator": "adjudicated",
+        "origin": "manual",
+        "pass": 1,
+        "verified_by": null,
+        "verified_date": null
+      },
+      "regions": [
+        {
+          "x0": 299.5,
+          "x1": 326.78,
+          "y0": 95.0,
+          "y1": 107.0
+        }
+      ],
+      "role": "plaintiff",
+      "text": "Wren",
+      "text_anchor": null
+    },
+    {
+      "action": "SYNTHETIC",
+      "action_source": "policy",
+      "attributes": {
+        "granularity": "full"
+      },
+      "canonical_id": null,
+      "certainty": "certain",
+      "entity_id": "syn_form.e0003",
+      "entity_type": "DATE_OF_BIRTH",
+      "field": null,
+      "flags": [],
+      "notes": "",
+      "override_reason": null,
+      "page": 1,
+      "provenance": {
+        "adjudication": "agreed",
+        "annotator": "adjudicated",
+        "origin": "manual",
+        "pass": 1,
+        "verified_by": null,
+        "verified_date": null
+      },
+      "regions": [
+        {
+          "x0": 299.5,
+          "x1": 355.54,
+          "y0": 127.0,
+          "y1": 139.0
+        }
+      ],
+      "role": null,
+      "text": "14/02/1979",
+      "text_anchor": null
+    },
+    {
+      "action": "SYNTHETIC",
+      "action_source": "policy",
+      "attributes": {
+        "number_class": "mobile"
+      },
+      "canonical_id": null,
+      "certainty": "certain",
+      "entity_id": "syn_form.e0004",
+      "entity_type": "PHONE",
+      "field": null,
+      "flags": [],
+      "notes": "",
+      "override_reason": null,
+      "page": 1,
+      "provenance": {
+        "adjudication": "agreed",
+        "annotator": "adjudicated",
+        "origin": "manual",
+        "pass": 1,
+        "verified_by": null,
+        "verified_date": null
+      },
+      "regions": [
+        {
+          "x0": 299.5,
+          "x1": 367.78,
+          "y0": 159.0,
+          "y1": 171.0
+        }
+      ],
+      "role": null,
+      "text": "0491 570 156",
+      "text_anchor": null
+    },
+    {
+      "action": "SYNTHETIC",
+      "action_source": "policy",
+      "attributes": {},
+      "canonical_id": "matter_syn/org_901",
+      "certainty": "certain",
+      "entity_id": "syn_form.e0005",
+      "entity_type": "ORGANIZATION",
+      "field": null,
+      "flags": [],
+      "notes": "",
+      "override_reason": null,
+      "page": 1,
+      "provenance": {
+        "adjudication": "agreed",
+        "annotator": "adjudicated",
+        "origin": "manual",
+        "pass": 1,
+        "verified_by": null,
+        "verified_date": null
+      },
+      "regions": [
+        {
+          "x0": 299.5,
+          "x1": 426.43,
+          "y0": 191.0,
+          "y1": 203.0
+        }
+      ],
+      "role": "medical_practice",
+      "text": "Brookvale Medical Centre",
+      "text_anchor": null
+    },
+    {
+      "action": "SYNTHETIC",
+      "action_source": "policy",
+      "attributes": {},
+      "canonical_id": null,
+      "certainty": "certain",
+      "entity_id": "syn_form.e0006",
+      "entity_type": "CLAIM_NUMBER",
+      "field": null,
+      "flags": [],
+      "notes": "",
+      "override_reason": null,
+      "page": 1,
+      "provenance": {
+        "adjudication": "agreed",
+        "annotator": "adjudicated",
+        "origin": "manual",
+        "pass": 1,
+        "verified_by": null,
+        "verified_date": null
+      },
+      "regions": [
+        {
+          "x0": 299.5,
+          "x1": 361.64,
+          "y0": 223.0,
+          "y1": 235.0
+        }
+      ],
+      "role": null,
+      "text": "WC7654321",
+      "text_anchor": null
+    }
+  ],
+  "guidelines_version": "0.1.0",
+  "ignore_regions": [],
+  "mode": "adjudicated",
+  "pass": 1,
+  "policy_ref": "default-au-pi@0.1.0",
+  "revision": 1,
+  "schema": "golden.annotation_set",
+  "schema_version": "0.1.0",
+  "silver": null
+}

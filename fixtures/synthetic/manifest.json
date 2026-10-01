@@ -1,0 +1,41 @@
+{
+  "documents": [
+    {
+      "document_id": "syn_born_digital",
+      "mentions": 12,
+      "page_class": "born_digital",
+      "pdf_sha256": "0881a305c5ac33310e67e3684c511a74b0052ca6bbba986f6010c1463a41f970",
+      "truth_sha256": "09feb306e72d8b615609e55a8225938e6a2ff86b392c27bdf21db381957b421f"
+    },
+    {
+      "document_id": "syn_form",
+      "mentions": 6,
+      "page_class": "born_digital",
+      "pdf_sha256": "fa69f578de6edab43c6f87a73827dabf30b16b40257ced11d11f55c934484a56",
+      "truth_sha256": "db83122c6ae9c2fee87f691df98ef495bb0b431667202486b8547a9ae13b6c52"
+    },
+    {
+      "document_id": "syn_hybrid",
+      "mentions": 14,
+      "page_class": "hybrid",
+      "pdf_sha256": "199760b29493a1e84a3f7e2d63041e9252285d5fe6951c1f0c2ed7618cd2d5c4",
+      "truth_sha256": "5580e220fcd887dd35ee954dee7b091fe4f034b53f1cd0b474b38a2b1a354563"
+    },
+    {
+      "document_id": "syn_scanned",
+      "mentions": 12,
+      "page_class": "scanned",
+      "pdf_sha256": "71e7a1bc18b160037b2712651570093c7d456a6c4f76eed4a88a9fcd24089ac5",
+      "truth_sha256": "2f583477b26821896be071023e6a70f1223dd2a4072c10ea9cd5d94fc4f7fe78"
+    },
+    {
+      "document_id": "syn_vector",
+      "mentions": 12,
+      "page_class": "vector_outlined",
+      "pdf_sha256": "20d3a525dbaf319515cceb1bb2a5c862bdf80c87c893dc7fc2add66a3e19794e",
+      "truth_sha256": "e95c4d5f205ce018a103a76c6343110f94d750af5e2bc585ffbd0f278479f569"
+    }
+  ],
+  "schema": "redactor.synthetic_fixtures",
+  "schema_version": "0.1.0"
+}

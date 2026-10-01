@@ -1,0 +1,437 @@
+{
+  "annotator": "adjudicated",
+  "coverage": {
+    "fields_complete": [],
+    "pages_complete": [
+      1
+    ],
+    "pages_verified": [],
+    "types_complete": []
+  },
+  "document_id": "syn_scanned",
+  "document_sha256": "71e7a1bc18b160037b2712651570093c7d456a6c4f76eed4a88a9fcd24089ac5",
+  "entities": [
+    {
+      "action": "SYNTHETIC",
+      "action_source": "policy",
+      "attributes": {
+        "granularity": "full"
+      },
+      "canonical_id": null,
+      "certainty": "certain",
+      "entity_id": "syn_scanned.e0001",
+      "entity_type": "DATE_OF_BIRTH",
+      "field": null,
+      "flags": [],
+      "notes": "",
+      "override_reason": null,
+      "page": 1,
+      "provenance": {
+        "adjudication": "agreed",
+        "annotator": "adjudicated",
+        "origin": "manual",
+        "pass": 1,
+        "verified_by": null,
+        "verified_date": null
+      },
+      "regions": [
+        {
+          "x0": 184.41,
+          "x1": 248.94,
+          "y0": 63.15,
+          "y1": 77.04
+        }
+      ],
+      "role": null,
+      "text": "14/02/1979",
+      "text_anchor": null
+    },
+    {
+      "action": "SYNTHETIC",
+      "action_source": "policy",
+      "attributes": {
+        "casing": "title",
+        "name_form": "full"
+      },
+      "canonical_id": "matter_syn/person_901",
+      "certainty": "certain",
+      "entity_id": "syn_scanned.e0002",
+      "entity_type": "PERSON",
+      "field": null,
+      "flags": [],
+      "notes": "",
+      "override_reason": null,
+      "page": 1,
+      "provenance": {
+        "adjudication": "agreed",
+        "annotator": "adjudicated",
+        "origin": "manual",
+        "pass": 1,
+        "verified_by": null,
+        "verified_date": null
+      },
+      "regions": [
+        {
+          "x0": 72.35,
+          "x1": 149.83,
+          "y0": 64.53,
+          "y1": 78.61
+        }
+      ],
+      "role": "plaintiff",
+      "text": "Wren Ashdale",
+      "text_anchor": null
+    },
+    {
+      "action": "SYNTHETIC",
+      "action_source": "policy",
+      "attributes": {},
+      "canonical_id": null,
+      "certainty": "certain",
+      "entity_id": "syn_scanned.e0003",
+      "entity_type": "CLAIM_NUMBER",
+      "field": null,
+      "flags": [],
+      "notes": "",
+      "override_reason": null,
+      "page": 1,
+      "provenance": {
+        "adjudication": "agreed",
+        "annotator": "adjudicated",
+        "origin": "manual",
+        "pass": 1,
+        "verified_by": null,
+        "verified_date": null
+      },
+      "regions": [
+        {
+          "x0": 136.17,
+          "x1": 204.55,
+          "y0": 79.77,
+          "y1": 93.72
+        }
+      ],
+      "role": null,
+      "text": "WC7654321",
+      "text_anchor": null
+    },
+    {
+      "action": "KEEP",
+      "action_source": "policy",
+      "attributes": {
+        "date_role": "examination"
+      },
+      "canonical_id": null,
+      "certainty": "certain",
+      "entity_id": "syn_scanned.e0004",
+      "entity_type": "DATE",
+      "field": null,
+      "flags": [],
+      "notes": "",
+      "override_reason": null,
+      "page": 1,
+      "provenance": {
+        "adjudication": "agreed",
+        "annotator": "adjudicated",
+        "origin": "manual",
+        "pass": 1,
+        "verified_by": null,
+        "verified_date": null
+      },
+      "regions": [
+        {
+          "x0": 199.51,
+          "x1": 276.52,
+          "y0": 94.77,
+          "y1": 108.84
+        }
+      ],
+      "role": null,
+      "text": "3 March 2024",
+      "text_anchor": null
+    },
+    {
+      "action": "SYNTHETIC",
+      "action_source": "policy",
+      "attributes": {
+        "casing": "title",
+        "name_form": "title_surname"
+      },
+      "canonical_id": "matter_syn/person_901",
+      "certainty": "certain",
+      "entity_id": "syn_scanned.e0005",
+      "entity_type": "PERSON",
+      "field": null,
+      "flags": [],
+      "notes": "",
+      "override_reason": null,
+      "page": 1,
+      "provenance": {
+        "adjudication": "agreed",
+        "annotator": "adjudicated",
+        "origin": "manual",
+        "pass": 1,
+        "verified_by": null,
+        "verified_date": null
+      },
+      "regions": [
+        {
+          "x0": 134.95,
+          "x1": 179.81,
+          "y0": 96.12,
+          "y1": 109.74
+        }
+      ],
+      "role": "plaintiff",
+      "text": "Ashdale",
+      "text_anchor": null
+    },
+    {
+      "action": "SYNTHETIC",
+      "action_source": "policy",
+      "attributes": {},
+      "canonical_id": null,
+      "certainty": "certain",
+      "entity_id": "syn_scanned.e0006",
+      "entity_type": "ADDRESS",
+      "field": null,
+      "flags": [],
+      "notes": "",
+      "override_reason": null,
+      "page": 1,
+      "provenance": {
+        "adjudication": "agreed",
+        "annotator": "adjudicated",
+        "origin": "manual",
+        "pass": 1,
+        "verified_by": null,
+        "verified_date": null
+      },
+      "regions": [
+        {
+          "x0": 118.86,
+          "x1": 331.2,
+          "y0": 110.0,
+          "y1": 125.96
+        }
+      ],
+      "role": null,
+      "text": "12 Fernhill Road Sampleton QLD 4999",
+      "text_anchor": null
+    },
+    {
+      "action": "SYNTHETIC",
+      "action_source": "policy",
+      "attributes": {},
+      "canonical_id": null,
+      "certainty": "certain",
+      "entity_id": "syn_scanned.e0007",
+      "entity_type": "EMAIL",
+      "field": null,
+      "flags": [],
+      "notes": "",
+      "override_reason": null,
+      "page": 1,
+      "provenance": {
+        "adjudication": "agreed",
+        "annotator": "adjudicated",
+        "origin": "manual",
+        "pass": 1,
+        "verified_by": null,
+        "verified_date": null
+      },
+      "regions": [
+        {
+          "x0": 193.0,
+          "x1": 353.76,
+          "y0": 125.69,
+          "y1": 140.93
+        }
+      ],
+      "role": null,
+      "text": "wren.ashdale@example.com",
+      "text_anchor": null
+    },
+    {
+      "action": "SYNTHETIC",
+      "action_source": "policy",
+      "attributes": {
+        "number_class": "mobile"
+      },
+      "canonical_id": null,
+      "certainty": "certain",
+      "entity_id": "syn_scanned.e0008",
+      "entity_type": "PHONE",
+      "field": null,
+      "flags": [],
+      "notes": "",
+      "override_reason": null,
+      "page": 1,
+      "provenance": {
+        "adjudication": "agreed",
+        "annotator": "adjudicated",
+        "origin": "manual",
+        "pass": 1,
+        "verified_by": null,
+        "verified_date": null
+      },
+      "regions": [
+        {
+          "x0": 97.73,
+          "x1": 175.7,
+          "y0": 128.18,
+          "y1": 142.26
+        }
+      ],
+      "role": null,
+      "text": "0491 570 156",
+      "text_anchor": null
+    },
+    {
+      "action": "SYNTHETIC",
+      "action_source": "policy",
+      "attributes": {},
+      "canonical_id": null,
+      "certainty": "certain",
+      "entity_id": "syn_scanned.e0009",
+      "entity_type": "MEDICARE",
+      "field": null,
+      "flags": [],
+      "notes": "",
+      "override_reason": null,
+      "page": 1,
+      "provenance": {
+        "adjudication": "agreed",
+        "annotator": "adjudicated",
+        "origin": "manual",
+        "pass": 1,
+        "verified_by": null,
+        "verified_date": null
+      },
+      "regions": [
+        {
+          "x0": 187.94,
+          "x1": 265.91,
+          "y0": 142.92,
+          "y1": 157.0
+        }
+      ],
+      "role": null,
+      "text": "2123 45670 1",
+      "text_anchor": null
+    },
+    {
+      "action": "SYNTHETIC",
+      "action_source": "policy",
+      "attributes": {},
+      "canonical_id": "matter_syn/org_901",
+      "certainty": "certain",
+      "entity_id": "syn_scanned.e0010",
+      "entity_type": "ORGANIZATION",
+      "field": null,
+      "flags": [],
+      "notes": "",
+      "override_reason": null,
+      "page": 1,
+      "provenance": {
+        "adjudication": "agreed",
+        "annotator": "adjudicated",
+        "origin": "manual",
+        "pass": 1,
+        "verified_by": null,
+        "verified_date": null
+      },
+      "regions": [
+        {
+          "x0": 235.4,
+          "x1": 378.16,
+          "y0": 157.35,
+          "y1": 172.34
+        }
+      ],
+      "role": "medical_practice",
+      "text": "Brookvale Medical Centre",
+      "text_anchor": null
+    },
+    {
+      "action": "SYNTHETIC",
+      "action_source": "policy",
+      "attributes": {
+        "casing": "title",
+        "name_form": "full"
+      },
+      "canonical_id": "matter_syn/person_902",
+      "certainty": "certain",
+      "entity_id": "syn_scanned.e0011",
+      "entity_type": "PERSON",
+      "field": null,
+      "flags": [],
+      "notes": "",
+      "override_reason": null,
+      "page": 1,
+      "provenance": {
+        "adjudication": "agreed",
+        "annotator": "adjudicated",
+        "origin": "manual",
+        "pass": 1,
+        "verified_by": null,
+        "verified_date": null
+      },
+      "regions": [
+        {
+          "x0": 136.8,
+          "x1": 218.82,
+          "y0": 159.58,
+          "y1": 173.72
+        }
+      ],
+      "role": "treating_practitioner",
+      "text": "Tamsin Hollow",
+      "text_anchor": null
+    },
+    {
+      "action": "KEEP",
+      "action_source": "policy",
+      "attributes": {
+        "date_role": "date_of_injury"
+      },
+      "canonical_id": null,
+      "certainty": "certain",
+      "entity_id": "syn_scanned.e0012",
+      "entity_type": "DATE",
+      "field": null,
+      "flags": [],
+      "notes": "",
+      "override_reason": null,
+      "page": 1,
+      "provenance": {
+        "adjudication": "agreed",
+        "annotator": "adjudicated",
+        "origin": "manual",
+        "pass": 1,
+        "verified_by": null,
+        "verified_date": null
+      },
+      "regions": [
+        {
+          "x0": 134.62,
+          "x1": 199.16,
+          "y0": 175.85,
+          "y1": 189.75
+        }
+      ],
+      "role": null,
+      "text": "20/06/2023",
+      "text_anchor": null
+    }
+  ],
+  "guidelines_version": "0.1.0",
+  "ignore_regions": [],
+  "mode": "adjudicated",
+  "pass": 1,
+  "policy_ref": "default-au-pi@0.1.0",
+  "revision": 1,
+  "schema": "golden.annotation_set",
+  "schema_version": "0.1.0",
+  "silver": null
+}
