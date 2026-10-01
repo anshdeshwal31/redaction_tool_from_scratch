@@ -1,0 +1,45 @@
+[project]
+name = "redactor"
+version = "0.1.0"
+description = "Local, deterministic PII pseudonymization and evaluation platform (plan: plans/PLAN_REV2_parts)"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "pydantic>=2.9,<3",
+    "pyyaml>=6.0,<7",
+    "pypdfium2>=4.30,<5",
+    "pikepdf>=9.0,<10",
+    "pillow>=11.0,<12",
+    "numpy>=2.0,<3",
+    "rapidfuzz>=3.10,<4",
+    "reportlab>=4.2,<5",
+    "fonttools>=4.54,<5",
+    "cryptography>=43,<46",
+    "fastapi>=0.115,<0.120",
+    "uvicorn>=0.32,<1",
+    "rapidocr-onnxruntime>=1.4,<1.5",
+    "presidio-analyzer>=2.2,<2.3",
+    "en-core-web-lg",
+]
+
+[project.scripts]
+redactor = "redactor.cli:main"
+
+[dependency-groups]
+dev = [
+    "pytest>=8.3,<9",
+    "hypothesis>=6.115,<7",
+]
+
+[build-system]
+requires = ["hatchling>=1.25"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/redactor"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q -p no:cacheprovider"
+
+[tool.uv.sources]
+en-core-web-lg = { url = "https://github.com/explosion/spacy-models/releases/download/en_core_web_lg-3.8.0/en_core_web_lg-3.8.0-py3-none-any.whl" }
