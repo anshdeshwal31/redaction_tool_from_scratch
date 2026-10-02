@@ -1,0 +1,11 @@
+# Baseline v0 on the dev split (plan §4.4, §7.1). No PII. The test split is scored only with --allow-test.
+experiment_id: baseline_v0
+extraction: {text_layer: text_layer.pdfium, ocr: ocr.tesseract/best-eng-300dpi-psm3, hybrid: true}
+detectors:
+  - {name: baseline, config: config/baseline.v0.1.yaml}
+combiner: null
+linker: rule_based@0.1.0
+policy: config/policy.v0.1.yaml
+replacement: surrogate@0.1.0          # linker + policy + replacement run on the detections (R1)
+dataset: {manifest: golden_dataset/manifest.json, split: [dev]}
+determinism: {in_process_runs: 20, fresh_process_runs: 5}

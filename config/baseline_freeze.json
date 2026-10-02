@@ -1,0 +1,11 @@
+{
+  "baseline": "baseline@0.1.0#5a4777a97c46",
+  "baseline_v1": "baseline@0.2.0#737ace91ed0b+a4bb8031",
+  "config_sha256": {
+    "baseline.v0.1.yaml": "29d9501f16557213a48978dd55c90c985de363095b112f812731a07622014ae7",
+    "forms/au_generic.yaml": "3c6ca05a0124d149b2944ce6e35c8defa255d4935a93a338c9e01749ac5a59a2"
+  },
+  "frozen_on": "2026-10-01",
+  "note": "Frozen before the silver pass (S1): written without any document content in context (pre-exposure). A later fingerprint means post-exposure.",
+  "source_sha256": "69776d19bb1f44df963bd383bc28646cfaf10be2921016008353ef6b0736812a"
+}

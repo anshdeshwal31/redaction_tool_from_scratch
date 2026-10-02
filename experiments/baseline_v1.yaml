@@ -1,0 +1,12 @@
+# Baseline v1 = v0 + layout-aware key-value rules (plan §7.2), a separate experiment. No PII.
+# Layout-rule results on doc_002 are "dev, not held-out" (plan §4.8).
+experiment_id: baseline_v1
+extraction: {text_layer: text_layer.pdfium, ocr: ocr.tesseract/best-eng-300dpi-psm3, hybrid: true}
+detectors:
+  - {name: baseline_v1, config: config/baseline.v0.1.yaml}
+combiner: null
+linker: rule_based@0.1.0
+policy: config/policy.v0.1.yaml
+replacement: surrogate@0.1.0
+dataset: {manifest: golden_dataset/manifest.json, split: [dev]}
+determinism: {in_process_runs: 20, fresh_process_runs: 5}

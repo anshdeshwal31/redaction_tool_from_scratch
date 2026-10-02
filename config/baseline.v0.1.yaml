@@ -1,0 +1,102 @@
+# Baseline detector v0 rules (plan §7.1). Generic Australian medico-legal vocabulary; no document content.
+detector: baseline
+version: 0.1.0
+
+enabled:
+  - patterns
+  - checksum_identifiers
+  - context_identifiers
+  - dob
+  - date_role
+  - names
+  - orgs
+  - lexicons
+
+context_window_chars: 48
+
+honorifics: [Mr, Mrs, Ms, Miss, Mx, Dr, Prof, Professor, Master, Sir, Dame, Judge, Justice, Hon, Madam]
+
+name_labels: [Name, Full Name, Full Names, Surname, Family Name, Last Name, Given Name, Given Names, First Name,
+              First Names, Claimant, Plaintiff, Patient, Worker, Injured Person, Injured Worker, Client, Applicant,
+              Insured, Employee, Examinee, Deponent, Witness, Treating Doctor, Treating GP, Doctor, Solicitor]
+
+signature_openers: [Yours faithfully, Yours sincerely, Kind regards, Regards, Yours truly, Sincerely]
+
+# Capitalised words that are never person-name tokens.
+name_stopwords: [The, This, That, These, Those, A, An, And, Or, Of, In, "On", At, To, For, By, With, From, Re, Dear,
+  Date, Report, Page, Name, Surname, Address, Phone, Email, Claim, Number, "No", Ref, Reference, File, Our, Your,
+  Injury, Medical, Doctor, Patient, History, Examination, Assessment, Opinion, Summary, Diagnosis, Treatment,
+  Plaintiff, Defendant, Claimant, Worker, Employer, Insurer, Court, Queensland, Australia, Australian, Street,
+  Road, Avenue, Drive, Hospital, Clinic, Centre, Center, Pty, Ltd, Limited, Lawyers, Solicitors, Monday, Tuesday,
+  Wednesday, Thursday, Friday, Saturday, Sunday, January, February, March, April, May, June, July, August,
+  September, October, November, December, Left, Right, Lumbar, Cervical, Thoracic, Spine, Knee, Shoulder,
+  Mental, Health, Pain, Work, WorkCover, Medicare, Centrelink, Notice, Part, Section, Schedule, Form, "Yes",
+  Signed, Signature, Mr, Mrs, Ms, Miss, Dr, Prof, Professor, Sir, Please, Thank, Thanks, Kind, Regards, Yours,
+  Faithfully, Sincerely, Director, Manager, Consultant, Specialist, Surgeon, Psychiatrist, Psychologist,
+  Physiotherapist, Orthopaedic, General, Practitioner, Independent, Impairment, Permanent, Degree, Whole, Person,
+  DSM, AMA, GEPIR, PIRS, Guides, Edition, Diagnostic, Statistical, Manual, Disorder, Disorders, Major, Depressive,
+  Post, Traumatic, Stress, Anxiety, Chronic, Acute, Syndrome, Tel, Fax, Mob, Mobile, Telephone, PO, Box, Suite,
+  Level, Unit, QLD, NSW, VIC, TAS, ACT, NT, WA, SA]
+
+given_name_min_len: 2
+surname_min_len: 3
+
+# ORGANIZATION: capitalised phrase ending in one of these words.
+org_suffixes: [Pty Ltd, Pty. Ltd., Pty Limited, Pty. Limited, Limited, Ltd, Ltd., Lawyers, Solicitors, Barristers,
+  Legal, Hospital, Hospitals, Private Hospital, Clinic, Medical Centre, Medical Center, Medical Practice,
+  Medical Group, Health Service, Health Services, Physiotherapy, Radiology, Imaging, Pathology, Insurance,
+  Insurers, Group, Council, University, College, School, Associates, Partners, Specialists, Rehabilitation,
+  Psychology, Psychiatry, Orthopaedics, Chambers, Foundation, Trust, Corporation, Corp, Inc, Holdings,
+  Constructions, Construction, Services, Transport, Logistics]
+
+# Organisations whose policy action is KEEP (statutory bodies, courts, government) with their role.
+keep_gazetteer:
+  statutory_body: [WorkCover Queensland, WorkCover QLD, WorkCover, Q-COMP, Medicare, Medicare Australia,
+                   Services Australia, Centrelink, Australian Taxation Office, Motor Accident Insurance Commission,
+                   Office of Industrial Relations, Workers' Compensation Regulator, Australian Health Practitioner Regulation Agency,
+                   AHPRA, National Disability Insurance Agency, NDIS, Department of Veterans' Affairs]
+  court_tribunal: [Supreme Court of Queensland, District Court of Queensland, Magistrates Court of Queensland,
+                   Magistrates Court, District Court, Supreme Court, Queensland Industrial Relations Commission,
+                   Industrial Court of Queensland, Queensland Civil and Administrative Tribunal, QCAT, High Court of Australia,
+                   Federal Court of Australia, Medical Assessment Tribunal, General Medical Assessment Tribunal]
+  government: [Queensland Health, Queensland Government, Queensland Police Service, Australian Government,
+               Commonwealth of Australia, State of Queensland, Department of Health, Queensland Ambulance Service]
+
+gender_words: [male, female, man, woman, men, women, gentleman, lady, boy, girl, transgender, non-binary, nonbinary]
+
+demonyms: [Australian, Aboriginal, New Zealander, British, English, Scottish, Welsh, Irish, American, Canadian,
+  Indian, Pakistani, Bangladeshi, Sri Lankan, Nepalese, Nepali, Chinese, Taiwanese, Japanese, Korean, Vietnamese,
+  Thai, Filipino, Filipina, Malaysian, Indonesian, Singaporean, Cambodian, Burmese, Afghan, Afghani, Iranian,
+  Iraqi, Syrian, Lebanese, Turkish, Egyptian, Sudanese, South Sudanese, Somali, Ethiopian, Eritrean, Kenyan,
+  Nigerian, Ghanaian, Zimbabwean, South African, Congolese, Fijian, Samoan, Tongan, Papua New Guinean,
+  Ni-Vanuatu, Italian, Greek, Maltese, Croatian, Serbian, Bosnian, Macedonian, Polish, German, Dutch, French,
+  Spanish, Portuguese, Brazilian, Chilean, Colombian, Argentinian, Mexican, Russian, Ukrainian]
+
+countries: [Australia, New Zealand, England, United Kingdom, Scotland, Wales, Ireland, United States, America,
+  Canada, India, Pakistan, Bangladesh, Sri Lanka, Nepal, China, Taiwan, Hong Kong, Japan, Korea, South Korea,
+  Vietnam, Thailand, Philippines, Malaysia, Indonesia, Singapore, Cambodia, Myanmar, Burma, Afghanistan, Iran,
+  Iraq, Syria, Lebanon, Turkey, Egypt, Sudan, South Sudan, Somalia, Ethiopia, Eritrea, Kenya, Nigeria, Ghana,
+  Zimbabwe, South Africa, Congo, Fiji, Samoa, Tonga, Papua New Guinea, Vanuatu, Italy, Greece, Malta, Croatia,
+  Serbia, Bosnia, Macedonia, Poland, Germany, Netherlands, Holland, France, Spain, Portugal, Brazil, Chile,
+  Colombia, Argentina, Mexico, Russia, Ukraine]
+
+nationality_cues: [born in, migrated from, emigrated from, immigrated from, arrived from, citizen of, national of,
+                   came to Australia from, originally from, grew up in]
+
+states:
+  Queensland: QLD
+  New South Wales: NSW
+  Victoria: VIC
+  Tasmania: TAS
+  South Australia: SA
+  Western Australia: WA
+  Northern Territory: NT
+  Australian Capital Territory: ACT
+
+# Stems looked up in the 60 characters before a date (same or previous line); the nearest one wins.
+date_roles:
+  date_of_injury: [date of injury, injured, injury on, injury occurred, date of accident, accident, incident, DOI]
+  examination: [examined, examination, assessed, assessment on, date of assessment, seen on, consultation, attended, interviewed, appointment, reviewed on, review on]
+  report: [report dated, dated, date of report, date of letter]
+  claim: [claim lodged, lodged, date of claim, claim date, served]
+  treatment: [surgery, operation, admitted, discharged, underwent, treated, commenced treatment]
