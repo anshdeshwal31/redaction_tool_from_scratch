@@ -1,0 +1,14 @@
+# Outputs and re-identification (E9, plan §4.12) on perfect detections (gold as predictions): isolates the
+# output machinery (JSON, renders, edit log, PDF burn-in with re-OCR, re-identification) from detection.
+# Evaluation only; burned pages stay in memory, nothing is exported. No PII.
+experiment_id: oracle_outputs
+extraction: {text_layer: text_layer.pdfium, ocr: ocr.tesseract/best-eng-300dpi-psm3, hybrid: true}
+detectors:
+  - {name: gold_oracle}
+combiner: null
+linker: rule_based@0.1.0
+policy: config/policy.v0.1.yaml
+replacement: surrogate@0.1.0
+output: {formats: [json, text, markdown, pdf_burned], pdf_dpi: 300, reocr: true}
+dataset: {manifest: golden_dataset/manifest.json, split: [dev]}
+determinism: {in_process_runs: 3, fresh_process_runs: 2}
