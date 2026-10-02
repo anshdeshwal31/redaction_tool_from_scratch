@@ -1,0 +1,12 @@
+# Linker + policy + replacement measured on perfect detections (gold as predictions): isolates R1 from
+# detection (plan §4.1). Evaluation only; never used for exports. No PII.
+experiment_id: oracle_replacement
+extraction: {text_layer: text_layer.pdfium, ocr: ocr.tesseract/best-eng-300dpi-psm3, hybrid: true}
+detectors:
+  - {name: gold_oracle}
+combiner: null
+linker: rule_based@0.1.0
+policy: config/policy.v0.1.yaml
+replacement: surrogate@0.1.0
+dataset: {manifest: golden_dataset/manifest.json, split: [dev]}
+determinism: {in_process_runs: 20, fresh_process_runs: 5}
