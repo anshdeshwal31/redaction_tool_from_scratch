@@ -1,0 +1,14 @@
+# C2 (config only) — NOT RUN, NOT RECOMMENDED: Philter 3.4.1 failed the determinism requirement in C1 (detection
+# 0/25 identical runs: its physician-name filter returns different spans for the same text) and hangs under
+# repeated load, so a combination with it cannot be reproduced (plan §4.7). Kept for completeness. No PII.
+experiment_id: c2_baseline_philter
+detectors:
+  - {name: baseline, config: config/baseline.v0.1.yaml}
+  - {name: philter_au, config: {policy: au_extended}}
+combiner: {strategy: union_resolved, overlap_resolution: [priority, longest, earliest, type_name]}
+extraction: {text_layer: text_layer.pdfium, ocr: ocr.tesseract/best-eng-300dpi-psm3, hybrid: true}
+linker: rule_based@0.1.0
+policy: config/policy.v0.1.yaml
+replacement: surrogate@0.1.0
+dataset: {manifest: golden_dataset/manifest.json, split: [dev]}
+determinism: {in_process_runs: 20, fresh_process_runs: 5}

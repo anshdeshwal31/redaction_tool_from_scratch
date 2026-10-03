@@ -1,0 +1,18 @@
+# C2 (configs only; run when the C1 results show complementary recall, plan §11 C2): baseline v0 +
+# Presidio NER for the baseline's weakest types (names, organisations, locations). Identifiers and
+# contact types stay with the baseline (checksums); NER wins PERSON/ORGANIZATION/LOCATION conflicts. No PII.
+experiment_id: c2_baseline_presidio_ner
+detectors:
+  - {name: baseline, config: config/baseline.v0.1.yaml}
+  - {name: presidio_ner, config: {spacy_model: en_core_web_lg, score_threshold: 0.5}}
+combiner:
+  strategy: union_resolved
+  overlap_resolution: [type_priority, priority, longest, earliest, type_name]
+  only_types: {presidio_ner: [PERSON, ORGANIZATION, LOCATION]}
+  type_priority: {PERSON: [presidio_ner, baseline], ORGANIZATION: [presidio_ner, baseline], LOCATION: [presidio_ner, baseline]}
+extraction: {text_layer: text_layer.pdfium, ocr: ocr.tesseract/best-eng-300dpi-psm3, hybrid: true}
+linker: rule_based@0.1.0
+policy: config/policy.v0.1.yaml
+replacement: surrogate@0.1.0
+dataset: {manifest: golden_dataset/manifest.json, split: [dev]}
+determinism: {in_process_runs: 20, fresh_process_runs: 5}

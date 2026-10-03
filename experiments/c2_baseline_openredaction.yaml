@@ -1,0 +1,13 @@
+# C2 (configs only): baseline v0 + OpenRedaction, union with overlaps resolved by detector order
+# (baseline first). No PII.
+experiment_id: c2_baseline_openredaction
+detectors:
+  - {name: baseline, config: config/baseline.v0.1.yaml}
+  - {name: openredaction, config: {options: {}}}
+combiner: {strategy: union_resolved, overlap_resolution: [priority, longest, earliest, type_name]}
+extraction: {text_layer: text_layer.pdfium, ocr: ocr.tesseract/best-eng-300dpi-psm3, hybrid: true}
+linker: rule_based@0.1.0
+policy: config/policy.v0.1.yaml
+replacement: surrogate@0.1.0
+dataset: {manifest: golden_dataset/manifest.json, split: [dev]}
+determinism: {in_process_runs: 20, fresh_process_runs: 5}
