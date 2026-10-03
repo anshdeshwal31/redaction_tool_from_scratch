@@ -1,0 +1,12 @@
+# C1 candidate (plan §11 C1), as shipped: Presidio default registry for English + the four AU recognizers
+# (checked at startup), spaCy en_core_web_lg 3.8.0, Presidio's default score threshold. No PII.
+experiment_id: c1_presidio
+detectors:
+  - {name: presidio, config: {mode: default_au, spacy_model: en_core_web_lg, score_threshold: 0.0}}
+combiner: null
+extraction: {text_layer: text_layer.pdfium, ocr: ocr.tesseract/best-eng-300dpi-psm3, hybrid: true}
+linker: rule_based@0.1.0
+policy: config/policy.v0.1.yaml
+replacement: surrogate@0.1.0
+dataset: {manifest: golden_dataset/manifest.json, split: [dev]}
+determinism: {in_process_runs: 20, fresh_process_runs: 5}

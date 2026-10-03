@@ -1,0 +1,11 @@
+# C1 candidate: Presidio NER only (spaCy en_core_web_lg 3.8.0), score threshold 0.5 as in plan §4.4. No PII.
+experiment_id: c1_presidio_ner
+detectors:
+  - {name: presidio_ner, config: {spacy_model: en_core_web_lg, score_threshold: 0.5}}
+combiner: null
+extraction: {text_layer: text_layer.pdfium, ocr: ocr.tesseract/best-eng-300dpi-psm3, hybrid: true}
+linker: rule_based@0.1.0
+policy: config/policy.v0.1.yaml
+replacement: surrogate@0.1.0
+dataset: {manifest: golden_dataset/manifest.json, split: [dev]}
+determinism: {in_process_runs: 20, fresh_process_runs: 5}

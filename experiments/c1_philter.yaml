@@ -1,0 +1,12 @@
+# C1 candidate: Philter 3.4.1 (pinned image, --network none), policy default (every built-in filter
+# that works offline; the PhEye person model service is not part of the image). No PII.
+experiment_id: c1_philter
+detectors:
+  - {name: philter, config: {policy: default}}
+combiner: null
+extraction: {text_layer: text_layer.pdfium, ocr: ocr.tesseract/best-eng-300dpi-psm3, hybrid: true}
+linker: rule_based@0.1.0
+policy: config/policy.v0.1.yaml
+replacement: surrogate@0.1.0
+dataset: {manifest: golden_dataset/manifest.json, split: [dev]}
+determinism: {in_process_runs: 20, fresh_process_runs: 5}

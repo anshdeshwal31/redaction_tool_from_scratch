@@ -1,0 +1,75 @@
+# Local deployment layout (plan §2.4, §5). No PII in this file.
+#
+# - `sidecars` is an internal network: the processing sidecars (Philter as a service; OpenRedaction and the
+#   second OCR engine run inside the api image) have no route off the host. The api reaches Philter only via
+#   `docker exec` in the adapter today; its in-process network guard refuses non-loopback connections.
+# - `loopback` exists only to publish the api and ui on 127.0.0.1; the api keeps its in-process network
+#   guard on (non-loopback connects are refused), the ui talks only to the api (CSP connect-src 'self').
+# - Batch OCR runs with network_mode: none (profile `batch`), exactly as the pipeline runs it.
+#
+# Usable now with the pinned, already-approved images:  docker compose -f docker/compose.yaml up -d philter
+# The `app` profile (api, ui) needs images that are NOT built yet: building them downloads a uv image and a
+# Node base image, which are not on the approved install list. Ask the owner before `--profile app build`.
+# Experiments do not use this file: they start Philter and Tesseract with `--network none` (stricter).
+name: redactor
+
+networks:
+  sidecars:
+    internal: true
+  loopback: {}
+
+services:
+  philter:
+    image: philterd/philter:3.4.1@sha256:9fabd3cb5cd0013a11c8628d7d0a62a3017161c505450c826725aee82e29d780
+    networks: [sidecars]
+    environment:
+      OMP_THREAD_LIMIT: "1"
+    volumes:
+      - ../sidecars/philter/policies:/opt/philter/policies:ro
+      - ../sidecars/philter/philter.properties:/opt/philter/philter.properties:ro
+      - ../sidecars/philter/client:/client:ro
+    restart: "no"
+
+  tesseract:
+    image: redactor-tesseract:0.1.0
+    profiles: [batch]
+    network_mode: none
+    environment:
+      OMP_THREAD_LIMIT: "1"
+    volumes:
+      - ${REDACTOR_DATA_ROOT:-..}/data/renders:/in:ro
+      - ${REDACTOR_DATA_ROOT:-..}/data/tmp/compose_tsv:/out
+    entrypoint: ["tesseract", "--version"]
+
+  api:
+    profiles: [app]
+    build:
+      context: ..
+      dockerfile: docker/backend/Dockerfile
+    image: redactor-api:0.1.0
+    networks: [sidecars, loopback]
+    ports: ["127.0.0.1:8765:8765"]
+    environment:
+      REDACTOR_DATA_ROOT: /confidential
+      OMP_THREAD_LIMIT: "1"
+      ORT_NUM_THREADS: "1"
+      HF_HUB_OFFLINE: "1"
+      TRANSFORMERS_OFFLINE: "1"
+      HF_HUB_DISABLE_TELEMETRY: "1"
+      DO_NOT_TRACK: "1"
+    volumes:
+      - ${REDACTOR_DATA_ROOT:-..}:/confidential
+
+  ui:
+    profiles: [app]
+    build:
+      context: ..
+      dockerfile: docker/frontend/Dockerfile
+    image: redactor-ui:0.1.0
+    networks: [loopback]
+    ports: ["127.0.0.1:3000:3000"]
+    environment:
+      REDACTOR_API: http://api:8765
+      NEXT_TELEMETRY_DISABLED: "1"
+      DO_NOT_TRACK: "1"
+    depends_on: [api]

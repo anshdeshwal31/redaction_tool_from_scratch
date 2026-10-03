@@ -1,0 +1,25 @@
+# Presidio native entity -> taxonomy type (plan §4.2 label mapping). Versioned; part of the adapter
+# fingerprint. Labels not listed become OTHER and are counted in the run. No PII.
+version: 0.1.0
+map:
+  PERSON: PERSON
+  ORGANIZATION: ORGANIZATION
+  LOCATION: LOCATION
+  NRP: NATIONALITY            # nationality, religious or political group; only nationality is in the taxonomy
+  DATE_TIME: DATE
+  AGE: AGE
+  EMAIL_ADDRESS: EMAIL
+  EMAIL: EMAIL
+  PHONE_NUMBER: PHONE
+  URL: URL
+  AU_ABN: ABN
+  AU_ACN: ACN
+  AU_TFN: TFN
+  AU_MEDICARE: MEDICARE
+  US_PASSPORT: PASSPORT
+  US_DRIVER_LICENSE: DRIVER_LICENCE
+  US_BANK_NUMBER: ACCOUNT_NUMBER
+  IBAN_CODE: ACCOUNT_NUMBER
+  CREDIT_CARD: ACCOUNT_NUMBER
+# everything else (ID, IP_ADDRESS, MAC_ADDRESS, CRYPTO, MEDICAL_LICENSE, US_SSN, US_ITIN, UK_NHS) -> OTHER
+ignore: []

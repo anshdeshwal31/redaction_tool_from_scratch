@@ -1,0 +1,330 @@
+{
+  "identifiers": {
+    "age": {
+      "ageFilterStrategies": [
+        {
+          "redactionFormat": "{{{REDACTED-%t}}}",
+          "strategy": "REDACT"
+        }
+      ]
+    },
+    "bankRoutingNumber": {
+      "bankRoutingNumberFilterStrategies": [
+        {
+          "redactionFormat": "{{{REDACTED-%t}}}",
+          "strategy": "REDACT"
+        }
+      ]
+    },
+    "bitcoinAddress": {
+      "bitcoinAddressFilterStrategies": [
+        {
+          "redactionFormat": "{{{REDACTED-%t}}}",
+          "strategy": "REDACT"
+        }
+      ]
+    },
+    "city": {
+      "cityFilterStrategies": [
+        {
+          "redactionFormat": "{{{REDACTED-%t}}}",
+          "strategy": "REDACT"
+        }
+      ]
+    },
+    "county": {
+      "countyFilterStrategies": [
+        {
+          "redactionFormat": "{{{REDACTED-%t}}}",
+          "strategy": "REDACT"
+        }
+      ]
+    },
+    "creditCard": {
+      "creditCardFilterStrategies": [
+        {
+          "redactionFormat": "{{{REDACTED-%t}}}",
+          "strategy": "REDACT"
+        }
+      ]
+    },
+    "currency": {
+      "currencyFilterStrategies": [
+        {
+          "redactionFormat": "{{{REDACTED-%t}}}",
+          "strategy": "REDACT"
+        }
+      ]
+    },
+    "date": {
+      "dateFilterStrategies": [
+        {
+          "redactionFormat": "{{{REDACTED-%t}}}",
+          "strategy": "REDACT"
+        }
+      ]
+    },
+    "driversLicense": {
+      "driversLicenseFilterStrategies": [
+        {
+          "redactionFormat": "{{{REDACTED-%t}}}",
+          "strategy": "REDACT"
+        }
+      ]
+    },
+    "emailAddress": {
+      "emailAddressFilterStrategies": [
+        {
+          "redactionFormat": "{{{REDACTED-%t}}}",
+          "strategy": "REDACT"
+        }
+      ]
+    },
+    "firstName": {
+      "firstNameFilterStrategies": [
+        {
+          "redactionFormat": "{{{REDACTED-%t}}}",
+          "strategy": "REDACT"
+        }
+      ]
+    },
+    "hospital": {
+      "hospitalFilterStrategies": [
+        {
+          "redactionFormat": "{{{REDACTED-%t}}}",
+          "strategy": "REDACT"
+        }
+      ]
+    },
+    "ibanCode": {
+      "ibanCodeFilterStrategies": [
+        {
+          "redactionFormat": "{{{REDACTED-%t}}}",
+          "strategy": "REDACT"
+        }
+      ]
+    },
+    "identifiers": [
+      {
+        "caseSensitive": true,
+        "classification": "au-medicare",
+        "identifierFilterStrategies": [
+          {
+            "redactionFormat": "{{{REDACTED-%t}}}",
+            "strategy": "REDACT"
+          }
+        ],
+        "pattern": "\\b[2-6]\\d{3}\\s?\\d{5}\\s?\\d(?:\\s?/?\\s?\\d)?\\b"
+      },
+      {
+        "caseSensitive": true,
+        "classification": "au-tfn",
+        "identifierFilterStrategies": [
+          {
+            "redactionFormat": "{{{REDACTED-%t}}}",
+            "strategy": "REDACT"
+          }
+        ],
+        "pattern": "\\b\\d{3}\\s?\\d{3}\\s?\\d{2,3}\\b"
+      },
+      {
+        "caseSensitive": true,
+        "classification": "au-abn",
+        "identifierFilterStrategies": [
+          {
+            "redactionFormat": "{{{REDACTED-%t}}}",
+            "strategy": "REDACT"
+          }
+        ],
+        "pattern": "\\b\\d{2}\\s?\\d{3}\\s?\\d{3}\\s?\\d{3}\\b"
+      },
+      {
+        "caseSensitive": true,
+        "classification": "au-acn",
+        "identifierFilterStrategies": [
+          {
+            "redactionFormat": "{{{REDACTED-%t}}}",
+            "strategy": "REDACT"
+          }
+        ],
+        "pattern": "\\b\\d{3}\\s?\\d{3}\\s?\\d{3}\\b"
+      },
+      {
+        "caseSensitive": true,
+        "classification": "au-phone",
+        "identifierFilterStrategies": [
+          {
+            "redactionFormat": "{{{REDACTED-%t}}}",
+            "strategy": "REDACT"
+          }
+        ],
+        "pattern": "(?:\\+61\\s?|\\b0)[2-478](?:[\\s-]?\\d){8}\\b"
+      },
+      {
+        "caseSensitive": true,
+        "classification": "au-phone-13",
+        "identifierFilterStrategies": [
+          {
+            "redactionFormat": "{{{REDACTED-%t}}}",
+            "strategy": "REDACT"
+          }
+        ],
+        "pattern": "\\b1[38]00(?:[\\s-]?\\d){6}\\b"
+      },
+      {
+        "caseSensitive": true,
+        "classification": "au-postcode-state",
+        "identifierFilterStrategies": [
+          {
+            "redactionFormat": "{{{REDACTED-%t}}}",
+            "strategy": "REDACT"
+          }
+        ],
+        "pattern": "\\b(?:NSW|VIC|QLD|SA|WA|TAS|NT|ACT)\\s+\\d{4}\\b"
+      },
+      {
+        "caseSensitive": true,
+        "classification": "au-provider-number",
+        "identifierFilterStrategies": [
+          {
+            "redactionFormat": "{{{REDACTED-%t}}}",
+            "strategy": "REDACT"
+          }
+        ],
+        "pattern": "\\b\\d{6}[0-9A-Z][A-HJ-NP-Y]\\b"
+      },
+      {
+        "caseSensitive": true,
+        "classification": "au-ahpra",
+        "identifierFilterStrategies": [
+          {
+            "redactionFormat": "{{{REDACTED-%t}}}",
+            "strategy": "REDACT"
+          }
+        ],
+        "pattern": "\\b[A-Z]{3}\\d{10}\\b"
+      }
+    ],
+    "ipAddress": {
+      "ipAddressFilterStrategies": [
+        {
+          "redactionFormat": "{{{REDACTED-%t}}}",
+          "strategy": "REDACT"
+        }
+      ]
+    },
+    "macAddress": {
+      "macAddressFilterStrategies": [
+        {
+          "redactionFormat": "{{{REDACTED-%t}}}",
+          "strategy": "REDACT"
+        }
+      ]
+    },
+    "passportNumber": {
+      "passportNumberFilterStrategies": [
+        {
+          "redactionFormat": "{{{REDACTED-%t}}}",
+          "strategy": "REDACT"
+        }
+      ]
+    },
+    "phoneNumber": {
+      "phoneNumberFilterStrategies": [
+        {
+          "redactionFormat": "{{{REDACTED-%t}}}",
+          "strategy": "REDACT"
+        }
+      ]
+    },
+    "phoneNumberExtension": {
+      "phoneNumberExtensionFilterStrategies": [
+        {
+          "redactionFormat": "{{{REDACTED-%t}}}",
+          "strategy": "REDACT"
+        }
+      ]
+    },
+    "physicianName": {
+      "physicianNameFilterStrategies": [
+        {
+          "redactionFormat": "{{{REDACTED-%t}}}",
+          "strategy": "REDACT"
+        }
+      ]
+    },
+    "ssn": {
+      "ssnFilterStrategies": [
+        {
+          "redactionFormat": "{{{REDACTED-%t}}}",
+          "strategy": "REDACT"
+        }
+      ]
+    },
+    "state": {
+      "stateFilterStrategies": [
+        {
+          "redactionFormat": "{{{REDACTED-%t}}}",
+          "strategy": "REDACT"
+        }
+      ]
+    },
+    "stateAbbreviation": {
+      "stateAbbreviationFilterStrategies": [
+        {
+          "redactionFormat": "{{{REDACTED-%t}}}",
+          "strategy": "REDACT"
+        }
+      ]
+    },
+    "streetAddress": {
+      "streetAddressFilterStrategies": [
+        {
+          "redactionFormat": "{{{REDACTED-%t}}}",
+          "strategy": "REDACT"
+        }
+      ]
+    },
+    "surname": {
+      "surnameFilterStrategies": [
+        {
+          "redactionFormat": "{{{REDACTED-%t}}}",
+          "strategy": "REDACT"
+        }
+      ]
+    },
+    "trackingNumber": {
+      "trackingNumberFilterStrategies": [
+        {
+          "redactionFormat": "{{{REDACTED-%t}}}",
+          "strategy": "REDACT"
+        }
+      ]
+    },
+    "url": {
+      "urlFilterStrategies": [
+        {
+          "redactionFormat": "{{{REDACTED-%t}}}",
+          "strategy": "REDACT"
+        }
+      ]
+    },
+    "vin": {
+      "vinFilterStrategies": [
+        {
+          "redactionFormat": "{{{REDACTED-%t}}}",
+          "strategy": "REDACT"
+        }
+      ]
+    },
+    "zipCode": {
+      "zipCodeFilterStrategies": [
+        {
+          "redactionFormat": "{{{REDACTED-%t}}}",
+          "strategy": "REDACT"
+        }
+      ]
+    }
+  },
+  "name": "au_extended"
+}

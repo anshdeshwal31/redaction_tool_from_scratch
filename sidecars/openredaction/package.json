@@ -1,0 +1,11 @@
+{
+  "name": "redactor-openredaction-sidecar",
+  "version": "0.1.0",
+  "private": true,
+  "type": "commonjs",
+  "description": "Local OpenRedaction adapter: stdin JSON in, spans out. AI assist disabled, network blocked in-process. No PII in this package.",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "openredaction": "1.1.5"
+  }
+}

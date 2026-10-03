@@ -1,0 +1,229 @@
+{
+  "identifiers": {
+    "age": {
+      "ageFilterStrategies": [
+        {
+          "redactionFormat": "{{{REDACTED-%t}}}",
+          "strategy": "REDACT"
+        }
+      ]
+    },
+    "bankRoutingNumber": {
+      "bankRoutingNumberFilterStrategies": [
+        {
+          "redactionFormat": "{{{REDACTED-%t}}}",
+          "strategy": "REDACT"
+        }
+      ]
+    },
+    "bitcoinAddress": {
+      "bitcoinAddressFilterStrategies": [
+        {
+          "redactionFormat": "{{{REDACTED-%t}}}",
+          "strategy": "REDACT"
+        }
+      ]
+    },
+    "city": {
+      "cityFilterStrategies": [
+        {
+          "redactionFormat": "{{{REDACTED-%t}}}",
+          "strategy": "REDACT"
+        }
+      ]
+    },
+    "county": {
+      "countyFilterStrategies": [
+        {
+          "redactionFormat": "{{{REDACTED-%t}}}",
+          "strategy": "REDACT"
+        }
+      ]
+    },
+    "creditCard": {
+      "creditCardFilterStrategies": [
+        {
+          "redactionFormat": "{{{REDACTED-%t}}}",
+          "strategy": "REDACT"
+        }
+      ]
+    },
+    "currency": {
+      "currencyFilterStrategies": [
+        {
+          "redactionFormat": "{{{REDACTED-%t}}}",
+          "strategy": "REDACT"
+        }
+      ]
+    },
+    "date": {
+      "dateFilterStrategies": [
+        {
+          "redactionFormat": "{{{REDACTED-%t}}}",
+          "strategy": "REDACT"
+        }
+      ]
+    },
+    "driversLicense": {
+      "driversLicenseFilterStrategies": [
+        {
+          "redactionFormat": "{{{REDACTED-%t}}}",
+          "strategy": "REDACT"
+        }
+      ]
+    },
+    "emailAddress": {
+      "emailAddressFilterStrategies": [
+        {
+          "redactionFormat": "{{{REDACTED-%t}}}",
+          "strategy": "REDACT"
+        }
+      ]
+    },
+    "firstName": {
+      "firstNameFilterStrategies": [
+        {
+          "redactionFormat": "{{{REDACTED-%t}}}",
+          "strategy": "REDACT"
+        }
+      ]
+    },
+    "hospital": {
+      "hospitalFilterStrategies": [
+        {
+          "redactionFormat": "{{{REDACTED-%t}}}",
+          "strategy": "REDACT"
+        }
+      ]
+    },
+    "ibanCode": {
+      "ibanCodeFilterStrategies": [
+        {
+          "redactionFormat": "{{{REDACTED-%t}}}",
+          "strategy": "REDACT"
+        }
+      ]
+    },
+    "ipAddress": {
+      "ipAddressFilterStrategies": [
+        {
+          "redactionFormat": "{{{REDACTED-%t}}}",
+          "strategy": "REDACT"
+        }
+      ]
+    },
+    "macAddress": {
+      "macAddressFilterStrategies": [
+        {
+          "redactionFormat": "{{{REDACTED-%t}}}",
+          "strategy": "REDACT"
+        }
+      ]
+    },
+    "passportNumber": {
+      "passportNumberFilterStrategies": [
+        {
+          "redactionFormat": "{{{REDACTED-%t}}}",
+          "strategy": "REDACT"
+        }
+      ]
+    },
+    "phoneNumber": {
+      "phoneNumberFilterStrategies": [
+        {
+          "redactionFormat": "{{{REDACTED-%t}}}",
+          "strategy": "REDACT"
+        }
+      ]
+    },
+    "phoneNumberExtension": {
+      "phoneNumberExtensionFilterStrategies": [
+        {
+          "redactionFormat": "{{{REDACTED-%t}}}",
+          "strategy": "REDACT"
+        }
+      ]
+    },
+    "physicianName": {
+      "physicianNameFilterStrategies": [
+        {
+          "redactionFormat": "{{{REDACTED-%t}}}",
+          "strategy": "REDACT"
+        }
+      ]
+    },
+    "ssn": {
+      "ssnFilterStrategies": [
+        {
+          "redactionFormat": "{{{REDACTED-%t}}}",
+          "strategy": "REDACT"
+        }
+      ]
+    },
+    "state": {
+      "stateFilterStrategies": [
+        {
+          "redactionFormat": "{{{REDACTED-%t}}}",
+          "strategy": "REDACT"
+        }
+      ]
+    },
+    "stateAbbreviation": {
+      "stateAbbreviationFilterStrategies": [
+        {
+          "redactionFormat": "{{{REDACTED-%t}}}",
+          "strategy": "REDACT"
+        }
+      ]
+    },
+    "streetAddress": {
+      "streetAddressFilterStrategies": [
+        {
+          "redactionFormat": "{{{REDACTED-%t}}}",
+          "strategy": "REDACT"
+        }
+      ]
+    },
+    "surname": {
+      "surnameFilterStrategies": [
+        {
+          "redactionFormat": "{{{REDACTED-%t}}}",
+          "strategy": "REDACT"
+        }
+      ]
+    },
+    "trackingNumber": {
+      "trackingNumberFilterStrategies": [
+        {
+          "redactionFormat": "{{{REDACTED-%t}}}",
+          "strategy": "REDACT"
+        }
+      ]
+    },
+    "url": {
+      "urlFilterStrategies": [
+        {
+          "redactionFormat": "{{{REDACTED-%t}}}",
+          "strategy": "REDACT"
+        }
+      ]
+    },
+    "vin": {
+      "vinFilterStrategies": [
+        {
+          "redactionFormat": "{{{REDACTED-%t}}}",
+          "strategy": "REDACT"
+        }
+      ]
+    },
+    "zipCode": {
+      "zipCodeFilterStrategies": [
+        {
+          "redactionFormat": "{{{REDACTED-%t}}}",
+          "strategy": "REDACT"
+        }
+      ]
+    }
+  },
+  "name": "default"
+}
