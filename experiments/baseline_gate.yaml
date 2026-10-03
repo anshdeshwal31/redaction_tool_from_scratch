@@ -1,0 +1,15 @@
+# Full production path on the dev split (plan §4.11): baseline detection -> linker/policy/replacement ->
+# release gate (retry ladder incl. rotation search and RapidOCR, union of attempts, final leak scan).
+# Gate thresholds are PROVISIONAL (silver dev calibration). No PII.
+experiment_id: baseline_gate
+extraction: {text_layer: text_layer.pdfium, ocr: ocr.tesseract/best-eng-300dpi-psm3, hybrid: true}
+detectors:
+  - {name: baseline, config: config/baseline.v0.1.yaml}
+combiner: null
+linker: rule_based@0.1.0
+policy: config/policy.v0.1.yaml
+replacement: surrogate@0.1.0
+gate: config/release_gate.v0.1.yaml
+gate_runs: 3        # gate determinism: the whole gate (retries, leak scan, outputs) is repeated and the digests compared
+dataset: {manifest: golden_dataset/manifest.json, split: [dev]}
+determinism: {in_process_runs: 20, fresh_process_runs: 5}

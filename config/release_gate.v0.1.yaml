@@ -1,0 +1,30 @@
+# Release gate v0.1 (plan §4.11). Fail-closed: nothing is exported unless every page is PASS, or REVIEW with
+# a recorded decision, and the final leak scan is clean. There is no force flag.
+#
+# PROVISIONAL THRESHOLDS: calibrated on the SILVER labels of the dev split (doc_002, doc_003, doc_005) with
+# `redactor gate calibrate`, to be re-calibrated on verified gold and frozen before the test split is scored.
+version: 0.1.0
+provisional: true
+calibration: {labels: silver, split: dev, date: "2026-10-01"}
+thresholds:
+  T_mean: 90.0          # page mean word confidence below this -> low confidence (sweep: flags 18/22 OCR-damaged dev pages, load 0.59)
+  T_word: 60.0          # a word below this confidence counts as low
+  T_frac: 0.10          # share of low words above this -> low confidence
+  engine_agreement_bow_f1: 0.6   # two engines' bag-of-words F1 below this -> REVIEW (OCR disagreement)
+  boundary_tolerance_chars: 2    # detector disagreement beyond this many characters -> REVIEW
+retry_ladder:           # fixed order, bounded; every attempt is recorded in the run manifest
+  - {name: dpi400, kind: tesseract, settings: {dpi: 400}}
+  - {name: deskew, kind: tesseract, settings: {deskew: true}}
+  - {name: psm6, kind: tesseract, settings: {psm: 6}}
+  - {name: contrast, kind: tesseract, settings: {contrast: true}}
+  - {name: rotation_search, kind: rotation, rotations: [90, 270]}
+  - {name: second_engine, kind: rapidocr}
+second_engine: on_low_confidence    # or: strict (run on every OCR page for corroboration)
+immediate_review: [unknown_page_class, handwriting]
+final_leak_scan:
+  fuzzy_min_len: 6
+  fuzzy_max_edits: 1
+  name_component_min_len: 3
+  detector_rerun: baseline
+review_decisions: [confirm_protect, not_pii, add_span, add_region, flag_handwriting, accept_ocr]
+not_pii_reasons: [not_pii, kept_public_body, generic_term, ocr_noise]
